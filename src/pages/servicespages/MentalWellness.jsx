@@ -5,28 +5,28 @@ import mentalBenefitsBg from "../../assets/mentalbenefits.jpg";
 import mentalHeroVideo from "../../assets/mentalhero.mp4";
 import mentalSteps from "../../assets/mentalsteps.jpg";
 import Header from "../../Header.jsx";
+import { useLanguage } from "../../utils/LanguageContext";
+import Footer from "../../footer.jsx";
 
 const MentalWellness = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const savedDarkMode = localStorage.getItem("darkMode") === "true";
     setIsDarkMode(savedDarkMode);
   }, []);
 
-  // Listen for dark mode changes from Header
   useEffect(() => {
     const handleDarkModeChange = (event) => {
       setIsDarkMode(event.detail);
     };
-
     window.addEventListener("darkModeChanged", handleDarkModeChange);
     return () => {
       window.removeEventListener("darkModeChanged", handleDarkModeChange);
     };
   }, []);
 
-  // Initialize AOS
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -34,60 +34,58 @@ const MentalWellness = () => {
     });
   }, []);
 
-  
-
   const programs = [
     {
-      title: "Stress Management Therapy",
-      description:
-        "Learn effective techniques to manage and reduce daily stress",
+      title: t("mental_program_stress_title"),
+      description: t("mental_program_stress_desc"),
     },
     {
-      title: "Anxiety Relief Programs",
-      description: "Comprehensive approaches to overcome anxiety and worry",
+      title: t("mental_program_anxiety_title"),
+      description: t("mental_program_anxiety_desc"),
     },
     {
-      title: "Mindfulness & Meditation",
-      description: "Develop mindfulness practices for mental clarity and peace",
+      title: t("mental_program_mindfulness_title"),
+      description: t("mental_program_mindfulness_desc"),
     },
     {
-      title: "Cognitive Behavioral Therapy",
-      description: "Evidence-based therapy for thought pattern improvement",
+      title: t("mental_program_cbt_title"),
+      description: t("mental_program_cbt_desc"),
     },
     {
-      title: "Emotional Wellness Workshops",
-      description: "Group sessions for emotional intelligence and resilience",
+      title: t("mental_program_emotional_title"),
+      description: t("mental_program_emotional_desc"),
     },
     {
-      title: "Sleep Improvement Programs",
-      description: "Specialized techniques for better sleep and rest",
+      title: t("mental_program_sleep_title"),
+      description: t("mental_program_sleep_desc"),
     },
   ];
 
   const howItWorks = [
-    "Complete a mental wellness assessment",
-    "Receive personalized therapy recommendations",
-    "Access guided sessions and resources",
-    "Practice techniques with expert guidance",
-    "Track progress and adjust your approach",
+    t("mental_how_step1"),
+    t("mental_how_step2"),
+    t("mental_how_step3"),
+    t("mental_how_step4"),
+    t("mental_how_step5"),
   ];
 
   const features = [
-    "Personalized therapy sessions",
-    "Mental health tracking tools",
-    "Guided meditation library",
-    "Expert consultation support",
+    t("mental_feature_personalized"),
+    t("mental_feature_tracking"),
+    t("mental_feature_meditation"),
+    t("mental_feature_consultation"),
   ];
 
   return (
     <div
-      className={`min-h-screen w-full overflow-x-hidden transition-colors duration-300 ${isDarkMode ? "bg-gray-900" : "bg-white"}`}
+      className={`min-h-screen w-full overflow-x-hidden transition-colors duration-300 ${
+        isDarkMode ? "bg-gray-900" : "bg-white"
+      }`}
     >
       <Header />
 
       {/* Hero Section */}
       <section className="relative flex items-center justify-center w-full h-screen max-w-full px-4 overflow-hidden sm:px-6 md:px-8 lg:px-16">
-        {/* Video Background */}
         <video
           autoPlay
           muted
@@ -95,40 +93,39 @@ const MentalWellness = () => {
           className="absolute inset-0 object-cover w-full h-full"
         >
           <source src={mentalHeroVideo} type="video/mp4" />
-          Your browser does not support the video tag.
+          {t("mental_video_not_supported")}
         </video>
-
-        {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-
         <div className="relative z-10 w-full max-w-4xl px-4 text-center">
           <h1
             className="mb-6 text-3xl font-bold leading-tight text-center text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl sm:mb-8"
             data-aos="fade-up"
           >
-            Discover <span className="text-teal-500">Mental Wellness</span>
+            {t("mental_hero_title1")}{" "}
+            <span className="text-teal-500">{t("mental_hero_title2")}</span>
           </h1>
           <p
             className="max-w-4xl mx-auto mb-8 text-lg leading-relaxed text-white sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl sm:mb-10"
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            Transform your mental health with personalized therapy and
-            mindfulness practices for inner peace and emotional balance.
+            {t("mental_hero_desc")}
           </p>
           <button
             className="bg-white text-[#26A0A2] font-semibold px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full shadow-lg hover:bg-gray-100 transition text-base sm:text-lg md:text-xl transform hover:scale-105"
             data-aos="fade-up"
             data-aos-delay="400"
           >
-            Start Your Journey
+            {t("mental_hero_btn")}
           </button>
         </div>
       </section>
 
       {/* Key Benefits Section */}
       <section
-        className={`w-full text-justify py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDarkMode ? "bg-black" : "bg-white"}`}
+        className={`w-full text-justify py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
+          isDarkMode ? "bg-black" : "bg-white"
+        }`}
         data-aos="fade-up"
         data-aos-duration="1000"
         data-aos-once="false"
@@ -141,18 +138,23 @@ const MentalWellness = () => {
             data-aos-once="false"
           >
             <h2
-              className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-800"}`}
+              className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${
+                isDarkMode ? "text-white" : "text-gray-800"
+              }`}
             >
-              Key <span className="text-[#26A0A2]">Benefits</span>
+              {t("mental_benefits_title1")}{" "}
+              <span className="text-[#26A0A2]">
+                {t("mental_benefits_title2")}
+              </span>
             </h2>
             <p
-              className={`text-base sm:text-lg max-w-2xl mx-auto ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+              className={`text-base sm:text-lg max-w-2xl mx-auto ${
+                isDarkMode ? "text-gray-300" : "text-gray-600"
+              }`}
             >
-              Transform your life with the proven benefits of mental wellness
-              practices and therapeutic techniques
+              {t("mental_benefits_desc")}
             </p>
           </div>
-
           <div className="grid items-center grid-cols-1 gap-6 lg:grid-cols-3 sm:gap-8">
             {/* Left Cards */}
             <div
@@ -162,7 +164,9 @@ const MentalWellness = () => {
               data-aos-once="false"
             >
               <div
-                className={`p-4 sm:p-6 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 h-auto min-h-[200px] sm:min-h-[256px] ${isDarkMode ? "bg-gray-800" : "bg-white"}`}
+                className={`p-4 sm:p-6 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 h-auto min-h-[200px] sm:min-h-[256px] ${
+                  isDarkMode ? "bg-gray-800" : "bg-white"
+                }`}
                 data-aos="fade-right"
                 data-aos-delay="400"
                 data-aos-once="false"
@@ -182,22 +186,25 @@ const MentalWellness = () => {
                     </svg>
                   </div>
                   <h3
-                    className={`text-xl font-bold ${isDarkMode ? "text-white" : "text-gray-800"}`}
+                    className={`text-xl font-bold ${
+                      isDarkMode ? "text-white" : "text-gray-800"
+                    }`}
                   >
-                    Reduces Stress
+                    {t("mental_benefit_stress_title")}
                   </h3>
                 </div>
                 <p
-                  className={`text-base ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+                  className={`text-base ${
+                    isDarkMode ? "text-gray-300" : "text-gray-600"
+                  }`}
                 >
-                  Effectively manage and reduce stress levels through proven
-                  therapeutic techniques and mindfulness practices designed for
-                  modern life challenges.
+                  {t("mental_benefit_stress_desc")}
                 </p>
               </div>
-
               <div
-                className={`p-4 sm:p-6 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 h-auto min-h-[200px] sm:min-h-[256px] ${isDarkMode ? "bg-gray-800" : "bg-white"}`}
+                className={`p-4 sm:p-6 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 h-auto min-h-[200px] sm:min-h-[256px] ${
+                  isDarkMode ? "bg-gray-800" : "bg-white"
+                }`}
                 data-aos="fade-right"
                 data-aos-delay="500"
                 data-aos-once="false"
@@ -217,20 +224,22 @@ const MentalWellness = () => {
                     </svg>
                   </div>
                   <h3
-                    className={`text-xl font-bold ${isDarkMode ? "text-white" : "text-gray-800"}`}
+                    className={`text-xl font-bold ${
+                      isDarkMode ? "text-white" : "text-gray-800"
+                    }`}
                   >
-                    Emotional Balance
+                    {t("mental_benefit_emotional_title")}
                   </h3>
                 </div>
                 <p
-                  className={`text-base ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+                  className={`text-base ${
+                    isDarkMode ? "text-gray-300" : "text-gray-600"
+                  }`}
                 >
-                  Develop emotional intelligence and regulation skills to
-                  maintain balance and resilience in challenging situations.
+                  {t("mental_benefit_emotional_desc")}
                 </p>
               </div>
             </div>
-
             {/* Center Image */}
             <div
               className="flex flex-col items-center text-center"
@@ -241,23 +250,25 @@ const MentalWellness = () => {
               <div className="w-48 h-48 mb-4 overflow-hidden shadow-2xl sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl sm:mb-6">
                 <img
                   src={mentalBenefitsBg}
-                  alt="Mental Wellness Benefits"
+                  alt={t("mental_benefits_img_alt")}
                   className="object-cover w-full h-full"
                 />
               </div>
               <h3
-                className={`text-2xl sm:text-3xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-800"}`}
+                className={`text-2xl sm:text-3xl font-bold mb-4 ${
+                  isDarkMode ? "text-white" : "text-gray-800"
+                }`}
               >
-                Transform Your Mind
+                {t("mental_benefit_transform_title")}
               </h3>
               <p
-                className={`text-lg max-w-md ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+                className={`text-lg max-w-md ${
+                  isDarkMode ? "text-gray-300" : "text-gray-600"
+                }`}
               >
-                Experience the profound benefits of mental wellness that will
-                enhance your emotional, cognitive, and psychological well-being.
+                {t("mental_benefit_transform_desc")}
               </p>
             </div>
-
             {/* Right Cards */}
             <div
               className="space-y-4 sm:space-y-6"
@@ -266,7 +277,9 @@ const MentalWellness = () => {
               data-aos-once="false"
             >
               <div
-                className={`p-4 sm:p-6 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 h-auto min-h-[200px] sm:min-h-[256px] ${isDarkMode ? "bg-gray-800" : "bg-white"}`}
+                className={`p-4 sm:p-6 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 h-auto min-h-[200px] sm:min-h-[256px] ${
+                  isDarkMode ? "bg-gray-800" : "bg-white"
+                }`}
                 data-aos="fade-left"
                 data-aos-delay="400"
                 data-aos-once="false"
@@ -286,22 +299,25 @@ const MentalWellness = () => {
                     </svg>
                   </div>
                   <h3
-                    className={`text-xl font-bold ${isDarkMode ? "text-white" : "text-gray-800"}`}
+                    className={`text-xl font-bold ${
+                      isDarkMode ? "text-white" : "text-gray-800"
+                    }`}
                   >
-                    Better Sleep
+                    {t("mental_benefit_sleep_title")}
                   </h3>
                 </div>
                 <p
-                  className={`text-base ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+                  className={`text-base ${
+                    isDarkMode ? "text-gray-300" : "text-gray-600"
+                  }`}
                 >
-                  Improve your sleep quality with relaxation techniques and
-                  mental wellness practices that prepare your mind for restful
-                  sleep.
+                  {t("mental_benefit_sleep_desc")}
                 </p>
               </div>
-
               <div
-                className={`p-4 sm:p-6 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 h-auto min-h-[200px] sm:min-h-[256px] ${isDarkMode ? "bg-gray-800" : "bg-white"}`}
+                className={`p-4 sm:p-6 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 h-auto min-h-[200px] sm:min-h-[256px] ${
+                  isDarkMode ? "bg-gray-800" : "bg-white"
+                }`}
                 data-aos="fade-left"
                 data-aos-delay="500"
                 data-aos-once="false"
@@ -321,16 +337,19 @@ const MentalWellness = () => {
                     </svg>
                   </div>
                   <h3
-                    className={`text-xl font-bold ${isDarkMode ? "text-white" : "text-gray-800"}`}
+                    className={`text-xl font-bold ${
+                      isDarkMode ? "text-white" : "text-gray-800"
+                    }`}
                   >
-                    Mental Clarity
+                    {t("mental_benefit_clarity_title")}
                   </h3>
                 </div>
                 <p
-                  className={`text-base ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+                  className={`text-base ${
+                    isDarkMode ? "text-gray-300" : "text-gray-600"
+                  }`}
                 >
-                  Enhance your cognitive function and mental clarity through
-                  mindfulness practices and therapeutic techniques.
+                  {t("mental_benefit_clarity_desc")}
                 </p>
               </div>
             </div>
@@ -342,30 +361,32 @@ const MentalWellness = () => {
       <section
         className={`w-full py-12 sm:py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300 relative overflow-hidden`}
       >
-        {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
             src="/src/assets/mentalserve.jpg"
-            alt="Mental Wellness Programs Background"
+            alt={t("mental_programs_img_alt")}
             className="object-cover w-full h-full"
           />
           <div className="absolute inset-0 bg-[#26A0A2] bg-opacity-70"></div>
         </div>
-
         <div className="relative z-10 w-full mx-auto overflow-hidden max-w-7xl">
           <div className="mb-12" data-aos="fade-up">
             <h2
               className={`text-3xl sm:text-4xl md:text-5xl font-bold text-white`}
             >
-              Programs we <span className="text-white">serve</span>
+              {t("mental_programs_title1")}{" "}
+              <span className="text-white">{t("mental_programs_title2")}</span>
             </h2>
           </div>
-
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 sm:gap-12">
             {programs.map((program, index) => (
               <div
                 key={index}
-                className={`transform transition-all duration-300 hover:scale-105 rounded-2xl p-6 shadow-lg ${isDarkMode ? "bg-gray-800 bg-opacity-90 backdrop-blur-sm" : "bg-white bg-opacity-90 backdrop-blur-sm"}`}
+                className={`transform transition-all duration-300 hover:scale-105 rounded-2xl p-6 shadow-lg ${
+                  isDarkMode
+                    ? "bg-gray-800 bg-opacity-90 backdrop-blur-sm"
+                    : "bg-white bg-opacity-90 backdrop-blur-sm"
+                }`}
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
                 data-aos-once="false"
@@ -376,12 +397,16 @@ const MentalWellness = () => {
                   </span>
                 </div>
                 <h3
-                  className={`text-xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-800"}`}
+                  className={`text-xl font-bold mb-4 ${
+                    isDarkMode ? "text-white" : "text-gray-800"
+                  }`}
                 >
                   {program.title}
                 </h3>
                 <p
-                  className={`text-base leading-relaxed ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+                  className={`text-base leading-relaxed ${
+                    isDarkMode ? "text-gray-300" : "text-gray-600"
+                  }`}
                 >
                   {program.description}
                 </p>
@@ -393,11 +418,12 @@ const MentalWellness = () => {
 
       {/* How It Works Section */}
       <section
-        className={`w-full py-12 sm:py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDarkMode ? "bg-black" : "bg-white"}`}
+        className={`w-full py-12 sm:py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
+          isDarkMode ? "bg-black" : "bg-white"
+        }`}
       >
         <div className="w-full mx-auto overflow-hidden max-w-7xl">
           <div className="grid items-stretch grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
-            {/* Left Side - Content */}
             <div
               className="flex flex-col space-y-8"
               data-aos="fade-right"
@@ -405,19 +431,23 @@ const MentalWellness = () => {
             >
               <div>
                 <h2
-                  className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-800"}`}
+                  className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${
+                    isDarkMode ? "text-white" : "text-gray-800"
+                  }`}
                 >
-                  How It <span className="text-[#26A0A2]">Works</span>
+                  {t("mental_how_title1")}{" "}
+                  <span className="text-[#26A0A2]">
+                    {t("mental_how_title2")}
+                  </span>
                 </h2>
                 <p
-                  className={`text-base sm:text-lg ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+                  className={`text-base sm:text-lg ${
+                    isDarkMode ? "text-gray-300" : "text-gray-600"
+                  }`}
                 >
-                  Get started with your mental wellness journey in just a few
-                  simple steps
+                  {t("mental_how_desc")}
                 </p>
               </div>
-
-              {/* Steps */}
               <div className="space-y-6">
                 {howItWorks.map((step, index) => (
                   <div
@@ -434,12 +464,19 @@ const MentalWellness = () => {
                     </div>
                     <div className="flex-1">
                       <h3
-                        className={`text-lg font-bold mb-2 ${isDarkMode ? "text-white" : "text-gray-800"}`}
+                        className={`text-lg font-bold mb-2 ${
+                          isDarkMode ? "text-white" : "text-gray-800"
+                        }`}
                       >
-                        Step {index + 1}
+                        {t("mental_how_step_label").replace(
+                          "{number}",
+                          index + 1,
+                        )}
                       </h3>
                       <p
-                        className={`text-base ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+                        className={`text-base ${
+                          isDarkMode ? "text-gray-300" : "text-gray-600"
+                        }`}
                       >
                         {step}
                       </p>
@@ -447,16 +484,12 @@ const MentalWellness = () => {
                   </div>
                 ))}
               </div>
-
-              {/* CTA Button */}
               <div className="pt-4">
                 <button className="bg-[#26A0A2] text-white font-semibold py-3 px-8 rounded-lg hover:bg-[#20c997] transition-colors duration-300 transform hover:scale-105">
-                  Start Your Journey
+                  {t("mental_hero_btn")}
                 </button>
               </div>
             </div>
-
-            {/* Right Side - Image */}
             <div
               className="flex items-start justify-center lg:justify-end"
               data-aos="fade-left"
@@ -466,12 +499,10 @@ const MentalWellness = () => {
                 <div className="relative">
                   <img
                     src={mentalSteps}
-                    alt="Mental Wellness Steps"
+                    alt={t("mental_how_img_alt")}
                     className="object-cover w-full shadow-2xl rounded-2xl"
                     style={{ height: "600px", maxHeight: "none" }}
                   />
-
-                  {/* Decorative elements */}
                   <div className="absolute w-8 h-8 bg-yellow-400 rounded-full -top-4 -left-4 opacity-80"></div>
                   <div className="absolute w-6 h-6 bg-pink-400 rounded-full -bottom-4 -right-4 opacity-80"></div>
                   <div className="absolute w-4 h-4 bg-blue-400 rounded-full top-1/2 -right-6 opacity-80"></div>
@@ -486,7 +517,6 @@ const MentalWellness = () => {
       <section className="w-full text-justify py-12 sm:py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300 bg-gradient-to-br from-[#26A0A2] to-[#20c997]">
         <div className="w-full mx-auto overflow-hidden max-w-7xl">
           <div className="grid items-stretch grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
-            {/* Left Side - Content */}
             <div
               className="flex flex-col space-y-8"
               data-aos="fade-right"
@@ -494,44 +524,30 @@ const MentalWellness = () => {
             >
               <div>
                 <h2 className="mb-6 text-3xl font-bold text-white sm:text-4xl md:text-5xl">
-                  <span className="text-white">Features</span> Included
+                  <span className="text-white">
+                    {t("mental_features_title1")}
+                  </span>{" "}
+                  {t("mental_features_title2")}
                 </h2>
                 <p className="mb-8 text-lg text-white sm:text-xl">
-                  Everything you need for a complete mental wellness experience
+                  {t("mental_features_desc")}
                 </p>
               </div>
-
               <div className="space-y-6">
                 <p className="text-base leading-relaxed text-white">
-                  Our comprehensive mental wellness platform provides you with
-                  all the tools and resources needed to achieve emotional
-                  balance and psychological well-being. From personalized
-                  therapy to expert guidance, we've got everything covered.
+                  {t("mental_features_p1")}
                 </p>
                 <p className="text-base leading-relaxed text-white">
-                  Whether you're dealing with stress, anxiety, or simply want to
-                  improve your mental health, our features are designed to
-                  support your journey at every step, making mental wellness
-                  accessible and effective for everyone.
+                  {t("mental_features_p2")}
                 </p>
                 <p className="text-base leading-relaxed text-white">
-                  Our platform integrates evidence-based therapeutic approaches
-                  with modern technology, ensuring you have access to the best
-                  mental health strategies. With real-time progress tracking and
-                  adaptive recommendations, your mental wellness journey becomes
-                  more effective and sustainable.
+                  {t("mental_features_p3")}
                 </p>
                 <p className="text-base leading-relaxed text-white">
-                  Join thousands of users who have transformed their mental
-                  health through our comprehensive approach. Experience the
-                  difference that personalized therapy, expert guidance, and
-                  ongoing support can make in your emotional and psychological
-                  well-being.
+                  {t("mental_features_p4")}
                 </p>
               </div>
             </div>
-
-            {/* Right Side - Cards */}
             <div
               className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6"
               data-aos="fade-left"
@@ -540,7 +556,11 @@ const MentalWellness = () => {
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className={`p-6 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 ${isDarkMode ? "bg-gray-800 bg-opacity-95 backdrop-blur-sm" : "bg-white bg-opacity-95 backdrop-blur-sm"}`}
+                  className={`p-6 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 ${
+                    isDarkMode
+                      ? "bg-gray-800 bg-opacity-95 backdrop-blur-sm"
+                      : "bg-white bg-opacity-95 backdrop-blur-sm"
+                  }`}
                   data-aos="fade-up"
                   data-aos-delay={index * 100}
                   data-aos-once="false"
@@ -560,16 +580,19 @@ const MentalWellness = () => {
                       </svg>
                     </div>
                     <h3
-                      className={`text-lg font-bold ${isDarkMode ? "text-white" : "text-gray-800"}`}
+                      className={`text-lg font-bold ${
+                        isDarkMode ? "text-white" : "text-gray-800"
+                      }`}
                     >
                       {feature}
                     </h3>
                   </div>
                   <p
-                    className={`text-sm ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+                    className={`text-sm ${
+                      isDarkMode ? "text-gray-300" : "text-gray-600"
+                    }`}
                   >
-                    Access to {feature.toLowerCase()} for enhanced mental
-                    wellness experience and comprehensive support.
+                    {t("mental_feature_card_desc", { feature })}
                   </p>
                 </div>
               ))}
@@ -580,38 +603,48 @@ const MentalWellness = () => {
 
       {/* Final CTA Section */}
       <section
-        className={`w-full py-12 sm:py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDarkMode ? "bg-black" : "bg-white"}`}
+        className={`w-full py-12 sm:py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
+          isDarkMode ? "bg-black" : "bg-white"
+        }`}
       >
         <div className="w-full max-w-6xl mx-auto overflow-hidden text-center">
           <div
-            className={`rounded-3xl p-8 sm:p-12 ${isDarkMode ? "bg-black" : "bg-white"}`}
+            className={`rounded-3xl p-8 sm:p-12 ${
+              isDarkMode ? "bg-black" : "bg-white"
+            }`}
             data-aos="fade-up"
           >
             <h2
-              className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-black"}`}
+              className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${
+                isDarkMode ? "text-white" : "text-black"
+              }`}
               data-aos="fade-down"
               data-aos-delay="50"
               data-aos-once="false"
             >
-              Start Your Mental Wellness Journey Today
+              {t("mental_cta_title")}
             </h2>
             <p
-              className={`text-lg sm:text-xl mb-12 max-w-2xl mx-auto ${isDarkMode ? "text-white" : "text-black"}`}
+              className={`text-lg sm:text-xl mb-12 max-w-2xl mx-auto ${
+                isDarkMode ? "text-white" : "text-black"
+              }`}
               data-aos="fade-up"
               data-aos-delay="100"
               data-aos-once="false"
             >
-              Get access to personalized therapy and mental wellness tools to
-              improve your emotional and psychological well-being.
+              {t("mental_cta_desc")}
             </p>
-
-            {/* Pricing Cards */}
             <div className="grid grid-cols-1 gap-8 mb-12 md:grid-cols-3">
               {/* Basic Plan */}
-              <div className="bg-gray-50 rounded-2xl p-6 border-2 border-gray-200 hover:border-[#26A0A2] transition-all duration-300">
-                <h3 className="mb-2 text-2xl font-bold text-gray-800">Basic</h3>
+              <div className="bg-gray-50 rounded-2xl p-6 border-gray-200 hover:border-[#26A0A2] transition-all duration-300">
+                <h3 className="mb-2 text-2xl font-bold text-gray-800">
+                  {t("mental_pricing_basic")}
+                </h3>
                 <div className="text-4xl font-bold text-[#26A0A2] mb-4">
-                  $29<span className="text-lg text-gray-600">/month</span>
+                  $29
+                  <span className="text-lg text-gray-600">
+                    / {t("mental_pricing_month")}
+                  </span>
                 </div>
                 <ul className="mb-6 space-y-3 text-left">
                   <li
@@ -631,7 +664,7 @@ const MentalWellness = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Basic therapy sessions
+                    {t("mental_pricing_basic_feature1")}
                   </li>
                   <li
                     className="flex items-center"
@@ -650,7 +683,7 @@ const MentalWellness = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Meditation library access
+                    {t("mental_pricing_basic_feature2")}
                   </li>
                   <li
                     className="flex items-center"
@@ -669,7 +702,7 @@ const MentalWellness = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Mobile app access
+                    {t("mental_pricing_basic_feature3")}
                   </li>
                   <li
                     className="flex items-center"
@@ -688,7 +721,7 @@ const MentalWellness = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Weekly progress reports
+                    {t("mental_pricing_basic_feature4")}
                   </li>
                 </ul>
                 <button
@@ -697,7 +730,7 @@ const MentalWellness = () => {
                   data-aos-delay="450"
                   data-aos-once="false"
                 >
-                  Choose Basic
+                  {t("mental_pricing_basic_btn")}
                 </button>
               </div>
 
@@ -709,7 +742,7 @@ const MentalWellness = () => {
                   data-aos-delay="250"
                   data-aos-once="false"
                 >
-                  MOST POPULAR
+                  {t("mental_pricing_popular")}
                 </div>
                 <h3
                   className="mb-2 text-2xl font-bold text-white"
@@ -717,7 +750,7 @@ const MentalWellness = () => {
                   data-aos-delay="250"
                   data-aos-once="false"
                 >
-                  Premium
+                  {t("mental_pricing_premium")}
                 </h3>
                 <div
                   className="mb-4 text-4xl font-bold text-white"
@@ -725,7 +758,10 @@ const MentalWellness = () => {
                   data-aos-delay="300"
                   data-aos-once="false"
                 >
-                  $59<span className="text-lg text-gray-100">/month</span>
+                  $59
+                  <span className="text-lg text-gray-100">
+                    / {t("mental_pricing_month")}
+                  </span>
                 </div>
                 <ul className="mb-6 space-y-3 text-left text-white">
                   <li
@@ -745,7 +781,7 @@ const MentalWellness = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Everything in Basic
+                    {t("mental_pricing_premium_feature1")}
                   </li>
                   <li
                     className="flex items-center"
@@ -764,7 +800,7 @@ const MentalWellness = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Live therapy sessions
+                    {t("mental_pricing_premium_feature2")}
                   </li>
                   <li
                     className="flex items-center"
@@ -783,7 +819,7 @@ const MentalWellness = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Personalized therapy plans
+                    {t("mental_pricing_premium_feature3")}
                   </li>
                   <li
                     className="flex items-center"
@@ -802,7 +838,7 @@ const MentalWellness = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Expert consultation
+                    {t("mental_pricing_premium_feature4")}
                   </li>
                   <li
                     className="flex items-center"
@@ -821,7 +857,7 @@ const MentalWellness = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Priority support
+                    {t("mental_pricing_premium_feature5")}
                   </li>
                 </ul>
                 <button
@@ -830,7 +866,7 @@ const MentalWellness = () => {
                   data-aos-delay="600"
                   data-aos-once="false"
                 >
-                  Choose Premium
+                  {t("mental_pricing_premium_btn")}
                 </button>
               </div>
 
@@ -842,7 +878,7 @@ const MentalWellness = () => {
                   data-aos-delay="350"
                   data-aos-once="false"
                 >
-                  Pro
+                  {t("mental_pricing_pro")}
                 </h3>
                 <div
                   className="text-4xl font-bold text-[#26A0A2] mb-4"
@@ -850,7 +886,10 @@ const MentalWellness = () => {
                   data-aos-delay="400"
                   data-aos-once="false"
                 >
-                  $99<span className="text-lg text-gray-600">/month</span>
+                  $99
+                  <span className="text-lg text-gray-600">
+                    / {t("mental_pricing_month")}
+                  </span>
                 </div>
                 <ul className="mb-6 space-y-3 text-left">
                   <li
@@ -870,7 +909,7 @@ const MentalWellness = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Everything in Premium
+                    {t("mental_pricing_pro_feature1")}
                   </li>
                   <li
                     className="flex items-center"
@@ -889,7 +928,7 @@ const MentalWellness = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    1-on-1 therapy sessions
+                    {t("mental_pricing_pro_feature2")}
                   </li>
                   <li
                     className="flex items-center"
@@ -908,7 +947,7 @@ const MentalWellness = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Custom therapy plans
+                    {t("mental_pricing_pro_feature3")}
                   </li>
                   <li
                     className="flex items-center"
@@ -927,7 +966,7 @@ const MentalWellness = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Weekend retreats access
+                    {t("mental_pricing_pro_feature4")}
                   </li>
                   <li
                     className="flex items-center"
@@ -946,7 +985,7 @@ const MentalWellness = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    VIP community access
+                    {t("mental_pricing_pro_feature5")}
                   </li>
                 </ul>
                 <button
@@ -955,13 +994,14 @@ const MentalWellness = () => {
                   data-aos-delay="700"
                   data-aos-once="false"
                 >
-                  Choose Pro
+                  {t("mental_pricing_pro_btn")}
                 </button>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

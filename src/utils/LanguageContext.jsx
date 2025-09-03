@@ -3,42 +3,263 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 
 const translations = {
   en: {
+    // Example for English (en)
+    "fitness.pricing.mostPopular": "Most Popular Plan",
+    "fitness.pricing.premium": "Premium Plan",
+    "fitness.pricing.premiumPrice": "$29.99",
+    "fitness.pricing.premiumFeature1":
+      "Access to all premium workouts and training plans",
+    "fitness.pricing.premiumFeature2": "Personalized coaching and support",
+    "fitness.pricing.premiumFeature3":
+      "Exclusive access to live classes and events",
+    "fitness.pricing.premiumFeature4": "Customized meal and nutrition plans",
+    "fitness.pricing.premiumFeature5": "Priority customer support",
+    "fitness.pricing.premiumBtn": "Choose Premium Plan",
+    "fitness.pricing.pro": "Pro Plan",
+    "fitness.pricing.proPrice": "$49.99",
+    "fitness.pricing.proFeature1": "Everything in Premium",
+    "fitness.pricing.proFeature2": "Advanced tracking and analytics",
+    "fitness.pricing.proFeature3": "One-on-one coaching sessions",
+    "fitness.pricing.proFeature4": "Access to exclusive workshops and events",
+    "fitness.pricing.proFeature5": "Dedicated support and guidance",
+    "fitness.pricing.proBtn": "Choose Pro Plan",
+
+    "fitness.pricing.title": "Affordable Pricing Plans",
+    "fitness.pricing.subtitle": "Choose a plan that fits your budget and goals",
+    "fitness.pricing.basic": "Basic Plan ",
+    "fitness.pricing.basicPrice": "$19.99",
+    "fitness.pricing.month": "per month",
+    "fitness.pricing.basicFeature1":
+      "Access to all standard workouts and training plans",
+    "fitness.pricing.basicFeature2": "Personalized workout recommendations",
+    "fitness.pricing.basicFeature3":
+      "Access to community support and resources",
+    "fitness.pricing.basicFeature4":
+      "Exclusive access to new workouts and features",
+    "fitness.pricing.basicBtn": "Choose Basic Plan",
+    "fitness.features.title": "Features Included",
+    "fitness.features.subtitle":
+      "Everything you need for a complete fitness experience",
+    "fitness.features.desc1":
+      "Our comprehensive fitness platform provides you with all the tools and resources needed to achieve your strength, endurance, and health goals. From personalized training to expert guidance, we've got everything covered.",
+    "fitness.features.desc2":
+      "Whether you're a beginner or an experienced athlete, our features are designed to support your fitness journey at every step, making exercise accessible and effective for everyone.",
+    "fitness.features.desc3":
+      "Our platform integrates cutting-edge fitness technology with proven training methodologies, ensuring you have access to the best workout strategies. With real-time progress tracking and adaptive recommendations, your fitness journey becomes more effective and engaging.",
+    "fitness.features.desc4":
+      "Join thousands of users who have transformed their bodies and lives through our comprehensive fitness approach. Experience the difference that personalized training, expert guidance, and community support can make in your health and fitness journey.",
+    "fitness.hero.title": "Achieve Your Fitness Goals",
+    "fitness.howItWorks.title": "How It Works",
+    "fitness.howItWorks.subtitle":
+      "Get started with your fitness journey in just a few simple steps",
+    "fitness.howItWorks.stepLabel": "Step {number}",
+    "fitness.howItWorks.cta": "Start Your Journey",
+
+    "fitness.programs.title": "Programs we serve",
+    "fitness.hero.subtitle": "Join our community and start your journey today",
+    "fitness.hero.button": "Get Started",
+    "fitness.benefits.subtitle":
+      "Discover the advantages of our fitness programs",
+    "fitness.benefits.strengthTitle": "Strength Training",
+    "fitness.benefits.strengthDesc":
+      "Build muscle and increase strength with our specialized programs",
+    "fitness.benefits.cardioTitle": "Cardio Fitness",
+    "fitness.benefits.cardioDesc":
+      "Boost your heart health and endurance with our cardio workouts",
+    "fitness.benefits.weightTitle": "Weight Management",
+    "fitness.benefits.weightDesc":
+      "Achieve and maintain a healthy weight with our tailored programs",
+    "fitness.benefits.energyTitle": "Increased Energy Levels",
+    "fitness.benefits.energyDesc":
+      "Experience improved energy and vitality through regular exercise",
+    "fitness.benefits.transformTitle": "Transformative Results",
+    "fitness.benefits.transformDesc":
+      "Achieve life-changing results with our comprehensive programs",
+
+    "fitness.benefits.title": "Key Benefits of Our Programs",
+    "fitness.programs.strength": "Strength Training Programs",
+    "fitness.programs.strengthDesc":
+      "Build muscle and increase strength with progressive resistance training",
+    "fitness.programs.cardio": "Cardio Fitness Classes",
+    "fitness.programs.cardioDesc":
+      "Improve heart health and endurance with dynamic cardio workouts",
+    "fitness.programs.hiit": "HIIT Training Sessions",
+    "fitness.programs.hiitDesc":
+      "High-intensity interval training for maximum fat burning and fitness",
+    "fitness.programs.functional": "Functional Fitness Training",
+    "fitness.programs.functionalDesc":
+      "Improve daily movement patterns and overall functional strength",
+    "fitness.programs.personal": "Personal Training Programs",
+    "fitness.programs.personalDesc":
+      "One-on-one customized fitness plans for your specific goals",
+    "fitness.programs.group": "Group Fitness Classes",
+    "fitness.programs.groupDesc":
+      "Motivating group sessions for all fitness levels and preferences",
+
+    "fitness.howItWorks.step1":
+      "Complete a fitness assessment and goal setting",
+    "fitness.howItWorks.step2": "Receive personalized workout recommendations",
+    "fitness.howItWorks.step3": "Access training programs and video guides",
+    "fitness.howItWorks.step4":
+      "Follow structured routines with expert guidance",
+    "fitness.howItWorks.step5": "Track progress and adjust your fitness plan",
+
+    "fitness.features.personalized": "Personalized workout plans",
+    "fitness.features.tracking": "Progress tracking tools",
+    "fitness.features.library": "Video exercise library",
+    "fitness.features.support": "Expert trainer support",
+
+    mental_program_stress_title: "Stress Management Therapy",
+    mental_program_stress_desc:
+      "Learn effective techniques to manage and reduce daily stress",
+    mental_program_anxiety_title: "Anxiety Relief Programs",
+    mental_program_anxiety_desc:
+      "Comprehensive approaches to overcome anxiety and worry",
+    mental_program_mindfulness_title: "Mindfulness & Meditation",
+    mental_program_mindfulness_desc:
+      "Develop mindfulness practices for mental clarity and peace",
+    mental_program_cbt_title: "Cognitive Behavioral Therapy",
+    mental_program_cbt_desc:
+      "Evidence-based therapy for thought pattern improvement",
+    mental_program_emotional_title: "Emotional Wellness Workshops",
+    mental_program_emotional_desc:
+      "Group sessions for emotional intelligence and resilience",
+    mental_program_sleep_title: "Sleep Improvement Programs",
+    mental_program_sleep_desc:
+      "Specialized techniques for better sleep and rest",
+    mental_how_step1: "Complete a mental wellness assessment",
+    mental_how_step2: "Receive personalized therapy recommendations",
+    mental_how_step3: "Access guided sessions and resources",
+    mental_how_step4: "Practice techniques with expert guidance",
+    mental_how_step5: "Track progress and adjust your approach",
+    mental_feature_personalized: "Personalized therapy sessions",
+    mental_feature_tracking: "Mental health tracking tools",
+    mental_feature_meditation: "Guided meditation library",
+    mental_feature_consultation: "Expert consultation support",
+    mental_hero_title1: "Discover",
+    mental_hero_title2: "Mental Wellness",
+    mental_hero_desc:
+      "Transform your mental health with personalized therapy and mindfulness practices for inner peace and emotional balance.",
+    mental_hero_btn: "Start Your Journey",
+    mental_video_not_supported: "Your browser does not support the video tag.",
+    mental_benefits_title1: "Key",
+    mental_benefits_title2: "Benefits",
+    mental_benefits_desc:
+      "Transform your life with the proven benefits of mental wellness practices and therapeutic techniques",
+    mental_benefit_stress_title: "Reduces Stress",
+    mental_benefit_stress_desc:
+      "Effectively manage and reduce stress levels through proven therapeutic techniques and mindfulness practices designed for modern life challenges.",
+    mental_benefit_emotional_title: "Emotional Balance",
+    mental_benefit_emotional_desc:
+      "Develop emotional intelligence and regulation skills to maintain balance and resilience in challenging situations.",
+    mental_benefit_transform_title: "Transform Your Mind",
+    mental_benefit_transform_desc:
+      "Experience the profound benefits of mental wellness that will enhance your emotional, cognitive, and psychological well-being.",
+    mental_benefit_sleep_title: "Better Sleep",
+    mental_benefit_sleep_desc:
+      "Improve your sleep quality with relaxation techniques and mental wellness practices that prepare your mind for restful sleep.",
+    mental_benefit_clarity_title: "Mental Clarity",
+    mental_benefit_clarity_desc:
+      "Enhance your cognitive function and mental clarity through mindfulness practices and therapeutic techniques.",
+    mental_benefits_img_alt: "Mental Wellness Benefits",
+    mental_programs_img_alt: "Mental Wellness Programs Background",
+    mental_programs_title1: "Programs we",
+    mental_programs_title2: "serve",
+    mental_how_title1: "How It",
+    mental_how_title2: "Works",
+    mental_how_desc:
+      "Get started with your mental wellness journey in just a few simple steps",
+    mental_how_step_label: "Step {number}",
+    mental_how_img_alt: "Mental Wellness Steps",
+    mental_features_title1: "Features",
+    mental_features_title2: "Included",
+    mental_features_desc:
+      "Everything you need for a complete mental wellness experience",
+    mental_features_p1:
+      "Our comprehensive mental wellness platform provides you with all the tools and resources needed to achieve emotional balance and psychological well-being. From personalized therapy to expert guidance, we've got everything covered.",
+    mental_features_p2:
+      "Whether you're dealing with stress, anxiety, or simply want to improve your mental health, our features are designed to support your journey at every step, making mental wellness accessible and effective for everyone.",
+    mental_features_p3:
+      "Our platform integrates evidence-based therapeutic approaches with modern technology, ensuring you have access to the best mental health strategies. With real-time progress tracking and adaptive recommendations, your mental wellness journey becomes more effective and sustainable.",
+    mental_features_p4:
+      "Join thousands of users who have transformed their mental health through our comprehensive approach. Experience the difference that personalized therapy, expert guidance, and ongoing support can make in your emotional and psychological well-being.",
+    mental_feature_card_desc:
+      "Access to {feature} for enhanced mental wellness experience and comprehensive support.",
+    mental_cta_title: "Start Your Mental Wellness Journey Today",
+    mental_cta_desc:
+      "Get access to personalized therapy and mental wellness tools to improve your emotional and psychological well-being.",
+    mental_pricing_basic: "Basic",
+    mental_pricing_month: "month",
+    mental_pricing_basic_feature1: "Basic therapy sessions",
+    mental_pricing_basic_feature2: "Meditation library access",
+    mental_pricing_basic_feature3: "Mobile app access",
+    mental_pricing_basic_feature4: "Weekly progress reports",
+    mental_pricing_basic_btn: "Choose Basic",
+    mental_pricing_popular: "MOST POPULAR",
+    mental_pricing_premium: "Premium",
+    mental_pricing_premium_feature1: "Everything in Basic",
+    mental_pricing_premium_feature2: "Live therapy sessions",
+    mental_pricing_premium_feature3: "Personalized therapy plans",
+    mental_pricing_premium_feature4: "Expert consultation",
+    mental_pricing_premium_feature5: "Priority support",
+    mental_pricing_premium_btn: "Choose Premium",
+    mental_pricing_pro: "Pro",
+    mental_pricing_pro_feature1: "Everything in Premium",
+    mental_pricing_pro_feature2: "1-on-1 therapy sessions",
+    mental_pricing_pro_feature3: "Custom therapy plans",
+    mental_pricing_pro_feature4: "Weekend retreats access",
+    mental_pricing_pro_feature5: "VIP community access",
+    mental_pricing_pro_btn: "Choose Pro",
+
     // Diet & Nutrition Page
     diet_hero_title1: "Discover",
     diet_hero_title2: "Diet & Nutrition",
-    diet_hero_desc: "Transform your health with personalized nutrition guidance and sustainable eating habits for optimal wellness.",
+    diet_hero_desc:
+      "Transform your health with personalized nutrition guidance and sustainable eating habits for optimal wellness.",
     diet_hero_btn: "Start Your Journey",
     diet_video_not_supported: "Your browser does not support the video tag.",
     diet_benefits_title1: "Key",
     diet_benefits_title2: "Benefits",
-    diet_benefits_desc: "Transform your life with the proven benefits of proper nutrition and healthy eating habits",
+    diet_benefits_desc:
+      "Transform your life with the proven benefits of proper nutrition and healthy eating habits",
     diet_benefit_energy_title: "Improves Energy",
-    diet_benefit_energy_desc: "Boost your daily energy levels and vitality through balanced nutrition and proper meal timing designed to fuel your body optimally.",
+    diet_benefit_energy_desc:
+      "Boost your daily energy levels and vitality through balanced nutrition and proper meal timing designed to fuel your body optimally.",
     diet_benefit_weight_title: "Healthy Weight",
-    diet_benefit_weight_desc: "Achieve and maintain a healthy weight through sustainable nutrition strategies that work with your body's natural metabolism.",
+    diet_benefit_weight_desc:
+      "Achieve and maintain a healthy weight through sustainable nutrition strategies that work with your body's natural metabolism.",
     diet_benefit_transform_title: "Transform Your Health",
-    diet_benefit_transform_desc: "Experience the profound benefits of proper nutrition that will enhance your physical health, mental clarity, and overall well-being.",
+    diet_benefit_transform_desc:
+      "Experience the profound benefits of proper nutrition that will enhance your physical health, mental clarity, and overall well-being.",
     diet_benefit_digestion_title: "Better Digestion",
-    diet_benefit_digestion_desc: "Improve your digestive health with nutrition plans that support gut health and promote optimal nutrient absorption.",
+    diet_benefit_digestion_desc:
+      "Improve your digestive health with nutrition plans that support gut health and promote optimal nutrient absorption.",
     diet_benefit_metabolism_title: "Boosts Metabolism",
-    diet_benefit_metabolism_desc: "Enhance your metabolic function through targeted nutrition strategies that optimize your body's natural fat-burning processes.",
+    diet_benefit_metabolism_desc:
+      "Enhance your metabolic function through targeted nutrition strategies that optimize your body's natural fat-burning processes.",
     diet_programs_title1: "Programs we",
     diet_programs_title2: "serve",
     diet_program_personalized_title: "Personalized Meal Planning",
-    diet_program_personalized_desc: "Custom nutrition plans tailored to your goals and lifestyle",
+    diet_program_personalized_desc:
+      "Custom nutrition plans tailored to your goals and lifestyle",
     diet_program_weight_title: "Weight Management Programs",
-    diet_program_weight_desc: "Sustainable approaches to achieving and maintaining healthy weight",
+    diet_program_weight_desc:
+      "Sustainable approaches to achieving and maintaining healthy weight",
     diet_program_sports_title: "Sports Nutrition Coaching",
-    diet_program_sports_desc: "Optimize performance with targeted nutrition strategies",
+    diet_program_sports_desc:
+      "Optimize performance with targeted nutrition strategies",
     diet_program_medical_title: "Medical Nutrition Therapy",
-    diet_program_medical_desc: "Specialized nutrition support for health conditions",
+    diet_program_medical_desc:
+      "Specialized nutrition support for health conditions",
     diet_program_detox_title: "Detox and Cleanse Programs",
     diet_program_detox_desc: "Gentle cleansing approaches for better health",
     diet_program_mindful_title: "Mindful Eating Workshops",
-    diet_program_mindful_desc: "Develop healthy relationships with food and eating habits",
+    diet_program_mindful_desc:
+      "Develop healthy relationships with food and eating habits",
     diet_how_title1: "How It",
     diet_how_title2: "Works",
-    diet_how_desc: "Get started with your nutrition journey in just a few simple steps",
+    diet_how_desc:
+      "Get started with your nutrition journey in just a few simple steps",
     diet_how_step1: "Complete a comprehensive nutrition assessment",
     diet_how_step2: "Receive your personalized meal plan",
     diet_how_step3: "Access nutrition guidance and recipes",
@@ -47,18 +268,25 @@ const translations = {
     diet_how_step_label: "Step {number}",
     diet_features_title1: "Features",
     diet_features_title2: "Included",
-    diet_features_desc: "Everything you need for a complete nutrition experience",
-    diet_features_p1: "Our comprehensive nutrition platform provides you with all the tools and resources needed to achieve your health and wellness goals. From personalized meal plans to expert guidance, we've got everything covered.",
-    diet_features_p2: "Whether you're looking to lose weight, gain muscle, or simply improve your overall health, our features are designed to support your journey at every step, making healthy eating accessible and enjoyable.",
-    diet_features_p3: "Our platform integrates cutting-edge nutrition science with practical meal planning, ensuring you have access to the best strategies for your health goals. With real-time progress tracking and adaptive recommendations, your nutrition journey becomes more effective and sustainable.",
-    diet_features_p4: "Join thousands of users who have transformed their health through our comprehensive nutrition approach. Experience the difference that personalized meal planning, expert guidance, and ongoing support can make in your health and wellness journey.",
+    diet_features_desc:
+      "Everything you need for a complete nutrition experience",
+    diet_features_p1:
+      "Our comprehensive nutrition platform provides you with all the tools and resources needed to achieve your health and wellness goals. From personalized meal plans to expert guidance, we've got everything covered.",
+    diet_features_p2:
+      "Whether you're looking to lose weight, gain muscle, or simply improve your overall health, our features are designed to support your journey at every step, making healthy eating accessible and enjoyable.",
+    diet_features_p3:
+      "Our platform integrates cutting-edge nutrition science with practical meal planning, ensuring you have access to the best strategies for your health goals. With real-time progress tracking and adaptive recommendations, your nutrition journey becomes more effective and sustainable.",
+    diet_features_p4:
+      "Join thousands of users who have transformed their health through our comprehensive nutrition approach. Experience the difference that personalized meal planning, expert guidance, and ongoing support can make in your health and wellness journey.",
     diet_feature_mealplans: "Personalized meal plans",
     diet_feature_tracking: "Nutrition tracking tools",
     diet_feature_recipes: "Recipe database access",
     diet_feature_consult: "Expert consultation support",
-    diet_feature_card_desc: "Access to {feature} for enhanced nutrition experience and comprehensive support.",
+    diet_feature_card_desc:
+      "Access to {feature} for enhanced nutrition experience and comprehensive support.",
     diet_cta_title: "Start Your Nutrition Journey Today",
-    diet_cta_desc: "Get access to personalized nutrition plans and wellness tools to improve your health and vitality.",
+    diet_cta_desc:
+      "Get access to personalized nutrition plans and wellness tools to improve your health and vitality.",
     diet_pricing_basic: "Basic",
     diet_pricing_basic_btn: "Choose Basic",
     diet_pricing_premium: "Premium",
@@ -554,25 +782,221 @@ const translations = {
     cta_img_alt: "Wellness Journey",
   },
   ar: {
+    "fitness.pricing.mostPopular": "الخطة الأكثر شيوعًا",
+    "fitness.pricing.premium": "الخطة المميزة",
+    "fitness.pricing.premiumPrice": "$29.99",
+    "fitness.pricing.premiumFeature1":
+      "الوصول إلى جميع التدريبات والخطط المميزة",
+    "fitness.pricing.premiumFeature2": "تدريب ودعم شخصي",
+    "fitness.pricing.premiumFeature3": "وصول حصري إلى الفصول والأحداث المباشرة",
+    "fitness.pricing.premiumFeature4": "خطط وجبات وتغذية مخصصة",
+    "fitness.pricing.premiumFeature5": "أولوية في دعم العملاء",
+    "fitness.pricing.premiumBtn": "اختر الخطة المميزة",
+    "fitness.pricing.pro": "الخطة الاحترافية",
+    "fitness.pricing.proPrice": "$49.99",
+    "fitness.pricing.proFeature1": "كل ما في الخطة المميزة",
+    "fitness.pricing.proFeature2": "تتبع وتحليلات متقدمة",
+    "fitness.pricing.proFeature3": "جلسات تدريب فردية",
+    "fitness.pricing.proFeature4": "الوصول إلى ورش عمل وأحداث حصرية",
+    "fitness.pricing.proFeature5": "دعم وإرشاد مخصص",
+    "fitness.pricing.proBtn": "اختر الخطة الاحترافية",
+    "fitness.pricing.title": "خطط أسعار ميسورة",
+    "fitness.pricing.subtitle": "اختر الخطة التي تناسب ميزانيتك وأهدافك",
+    "fitness.pricing.basic": "الخطة الأساسية",
+    "fitness.pricing.basicPrice": "$19.99",
+    "fitness.pricing.month": "شهريًا",
+    "fitness.pricing.basicFeature1":
+      "الوصول إلى جميع التدريبات والخطط القياسية",
+    "fitness.pricing.basicFeature2": "توصيات تدريب شخصية",
+    "fitness.pricing.basicFeature3": "الوصول إلى دعم المجتمع والموارد",
+    "fitness.pricing.basicFeature4": "وصول حصري إلى التدريبات والميزات الجديدة",
+    "fitness.pricing.basicBtn": "اختر الخطة الأساسية",
+    "fitness.features.title": "الميزات المشمولة",
+    "fitness.features.subtitle": "كل ما تحتاجه لتجربة لياقة بدنية متكاملة",
+    "fitness.features.desc1":
+      "منصتنا الشاملة للياقة البدنية توفر لك جميع الأدوات والموارد اللازمة لتحقيق أهدافك في القوة، القدرة على التحمل، والصحة. من التدريب الشخصي إلى الإرشاد المتخصص، نحن نغطي كل شيء.",
+    "fitness.features.desc2":
+      "سواء كنت مبتدئًا أو رياضيًا ذا خبرة، تم تصميم ميزاتنا لدعم رحلتك في اللياقة البدنية في كل خطوة، مما يجعل التمرين متاحًا وفعالًا للجميع.",
+    "fitness.features.desc3":
+      "منصتنا تدمج أحدث تقنيات اللياقة البدنية مع أساليب التدريب المثبتة، مما يضمن لك الوصول إلى أفضل استراتيجيات التمرين. مع تتبع التقدم في الوقت الفعلي والتوصيات التكيفية، تصبح رحلتك الرياضية أكثر فعالية وجاذبية.",
+    "fitness.features.desc4":
+      "انضم إلى آلاف المستخدمين الذين غيّروا أجسامهم وحياتهم من خلال نهجنا الشامل في اللياقة البدنية. اختبر الفرق الذي يمكن أن يحدثه التدريب الشخصي، الإرشاد المتخصص، ودعم المجتمع في رحلتك نحو الصحة واللياقة.",
+    "fitness.howItWorks.title": "كيف تعمل",
+    "fitness.howItWorks.subtitle":
+      "ابدأ رحلتك في اللياقة البدنية في بضع خطوات بسيطة فقط",
+    "fitness.howItWorks.stepLabel": "الخطوة {number}",
+    "fitness.howItWorks.cta": "ابدأ رحلتك",
+    "fitness.benefits.title": "الفوائد الرئيسية لبرامجنا",
+    "fitness.programs.title": "البرامج التي نقدمها",
+    "fitness.hero.title": "حقق أهدافك في اللياقة البدنية",
+    "fitness.hero.subtitle": "انضم إلى مجتمعنا وابدأ رحلتك اليوم",
+    "fitness.hero.button": "ابدأ الآن",
+    "fitness.benefits.subtitle": "اكتشف فوائد برامجنا الرياضية",
+    "fitness.benefits.strengthTitle": "تدريب القوة",
+    "fitness.benefits.strengthDesc":
+      "قم ببناء العضلات وزيادة القوة من خلال برامجنا المتخصصة",
+    "fitness.benefits.cardioTitle": "تمارين الكارديو",
+    "fitness.benefits.cardioDesc":
+      "عزز صحة قلبك وقدرتك على التحمل مع تمارين الكارديو لدينا",
+    "fitness.benefits.weightTitle": "إدارة الوزن",
+    "fitness.benefits.weightDesc":
+      "حقق وحافظ على وزن صحي من خلال برامجنا المصممة خصيصًا لك",
+    "fitness.benefits.energyTitle": "زيادة مستويات الطاقة",
+    "fitness.benefits.energyDesc":
+      "اشعر بزيادة في النشاط والحيوية من خلال التمارين المنتظمة",
+    "fitness.benefits.transformTitle": "نتائج تحويلية",
+    "fitness.benefits.transformDesc":
+      "حقق نتائج تغير حياتك من خلال برامجنا الشاملة",
+    "fitness.programs.strength": "برامج تدريب القوة",
+    "fitness.programs.strengthDesc":
+      "ابنِ العضلات وزد قوتك من خلال تدريب المقاومة التدريجي",
+    "fitness.programs.cardio": "دروس اللياقة القلبية",
+    "fitness.programs.cardioDesc":
+      "حسّن صحة القلب والقدرة على التحمل من خلال تمارين كارديو ديناميكية",
+    "fitness.programs.hiit": "جلسات تدريب HIIT",
+    "fitness.programs.hiitDesc":
+      "تدريب متقطع عالي الكثافة لحرق الدهون وزيادة اللياقة إلى الحد الأقصى",
+    "fitness.programs.functional": "تدريب اللياقة الوظيفية",
+    "fitness.programs.functionalDesc":
+      "حسّن أنماط الحركة اليومية وقوة الجسم الوظيفية العامة",
+    "fitness.programs.personal": "برامج التدريب الشخصي",
+    "fitness.programs.personalDesc": "خطط لياقة مخصصة فردية لأهدافك الخاصة",
+    "fitness.programs.group": "دروس اللياقة الجماعية",
+    "fitness.programs.groupDesc":
+      "جلسات جماعية محفزة لجميع مستويات اللياقة والتفضيلات",
+
+    "fitness.howItWorks.step1": "أكمل تقييم اللياقة وتحديد الأهداف",
+    "fitness.howItWorks.step2": "استلم توصيات تمرين مخصصة",
+    "fitness.howItWorks.step3": "احصل على برامج تدريب وأدلة فيديو",
+    "fitness.howItWorks.step4": "اتبع روتينات منظمة مع إرشاد الخبراء",
+    "fitness.howItWorks.step5": "تتبع التقدم وقم بتعديل خطة لياقتك",
+
+    "fitness.features.personalized": "خطط تمرين مخصصة",
+    "fitness.features.tracking": "أدوات تتبع التقدم",
+    "fitness.features.library": "مكتبة فيديو للتمارين",
+    "fitness.features.support": "دعم مدربين خبراء",
+    mental_program_stress_title: "علاج إدارة التوتر",
+    mental_program_stress_desc: "تعلم تقنيات فعالة لإدارة وتقليل التوتر اليومي",
+    mental_program_anxiety_title: "برامج تخفيف القلق",
+    mental_program_anxiety_desc: "طرق شاملة للتغلب على القلق والهموم",
+    mental_program_mindfulness_title: "اليقظة والتأمل",
+    mental_program_mindfulness_desc:
+      "طور ممارسات اليقظة من أجل صفاء الذهن والسلام",
+    mental_program_cbt_title: "العلاج السلوكي المعرفي",
+    mental_program_cbt_desc: "علاج قائم على الأدلة لتحسين أنماط التفكير",
+    mental_program_emotional_title: "ورش عمل الصحة العاطفية",
+    mental_program_emotional_desc: "جلسات جماعية للذكاء العاطفي والمرونة",
+    mental_program_sleep_title: "برامج تحسين النوم",
+    mental_program_sleep_desc: "تقنيات متخصصة لنوم أفضل وراحة",
+    mental_how_step1: "أكمل تقييم الصحة النفسية",
+    mental_how_step2: "استلم توصيات علاجية شخصية",
+    mental_how_step3: "الوصول إلى جلسات وموارد موجهة",
+    mental_how_step4: "مارس التقنيات مع إرشاد الخبراء",
+    mental_how_step5: "تتبع التقدم وعدل نهجك",
+    mental_feature_personalized: "جلسات علاجية شخصية",
+    mental_feature_tracking: "أدوات تتبع الصحة النفسية",
+    mental_feature_meditation: "مكتبة التأمل الموجه",
+    mental_feature_consultation: "دعم استشاري من الخبراء",
+
+    mental_hero_title1: "اكتشف",
+    mental_hero_title2: "الصحة النفسية",
+    mental_hero_desc:
+      "حوّل صحتك النفسية من خلال العلاج الشخصي وممارسات اليقظة لتحقيق السلام الداخلي والتوازن العاطفي.",
+    mental_hero_btn: "ابدأ رحلتك",
+    mental_video_not_supported: "متصفحك لا يدعم وسم الفيديو.",
+    mental_benefits_title1: "الفوائد",
+    mental_benefits_title2: "الرئيسية",
+    mental_benefits_desc:
+      "حوّل حياتك مع الفوائد المثبتة لممارسات الصحة النفسية والتقنيات العلاجية.",
+    mental_benefit_stress_title: "يقلل التوتر",
+    mental_benefit_stress_desc:
+      "قم بإدارة وتقليل مستويات التوتر بفعالية من خلال تقنيات علاجية مثبتة وممارسات اليقظة المصممة لتحديات الحياة الحديثة.",
+    mental_benefit_emotional_title: "التوازن العاطفي",
+    mental_benefit_emotional_desc:
+      "طوّر الذكاء العاطفي ومهارات التنظيم للحفاظ على التوازن والمرونة في المواقف الصعبة.",
+    mental_benefit_transform_title: "حوّل عقلك",
+    mental_benefit_transform_desc:
+      "اختبر الفوائد العميقة للصحة النفسية التي ستعزز رفاهيتك العاطفية والمعرفية والنفسية.",
+    mental_benefit_sleep_title: "نوم أفضل",
+    mental_benefit_sleep_desc:
+      "حسّن جودة نومك باستخدام تقنيات الاسترخاء وممارسات الصحة النفسية التي تهيئ عقلك لنوم مريح.",
+    mental_benefit_clarity_title: "صفاء ذهني",
+    mental_benefit_clarity_desc:
+      "عزز وظائفك الإدراكية وصفاء ذهنك من خلال ممارسات اليقظة والتقنيات العلاجية.",
+    mental_benefits_img_alt: "فوائد الصحة النفسية",
+    mental_programs_img_alt: "خلفية برامج الصحة النفسية",
+    mental_programs_title1: "البرامج التي",
+    mental_programs_title2: "نقدمها",
+    mental_how_title1: "كيف",
+    mental_how_title2: "يعمل",
+    mental_how_desc: "ابدأ رحلتك نحو الصحة النفسية في بضع خطوات بسيطة فقط.",
+    mental_how_step_label: "الخطوة {number}",
+    mental_how_img_alt: "خطوات الصحة النفسية",
+    mental_features_title1: "المميزات",
+    mental_features_title2: "المتضمنة",
+    mental_features_desc: "كل ما تحتاجه لتجربة شاملة للصحة النفسية.",
+    mental_features_p1:
+      "يوفر لك منصتنا الشاملة للصحة النفسية جميع الأدوات والموارد اللازمة لتحقيق التوازن العاطفي والرفاهية النفسية. من العلاج الشخصي إلى الإرشاد المتخصص، نحن نغطي كل شيء.",
+    mental_features_p2:
+      "سواء كنت تتعامل مع التوتر أو القلق أو ترغب ببساطة في تحسين صحتك النفسية، تم تصميم ميزاتنا لدعم رحلتك في كل خطوة، مما يجعل الصحة النفسية متاحة وفعالة للجميع.",
+    mental_features_p3:
+      "تدمج منصتنا الأساليب العلاجية المبنية على الأدلة مع التكنولوجيا الحديثة، مما يضمن لك الوصول إلى أفضل استراتيجيات الصحة النفسية. مع تتبع التقدم في الوقت الفعلي والتوصيات التكيفية، تصبح رحلتك أكثر فعالية واستدامة.",
+    mental_features_p4:
+      "انضم إلى آلاف المستخدمين الذين غيّروا صحتهم النفسية من خلال نهجنا الشامل. اختبر الفرق الذي يمكن أن يحدثه العلاج الشخصي والإرشاد المتخصص والدعم المستمر في رفاهيتك العاطفية والنفسية.",
+    mental_feature_card_desc:
+      "الوصول إلى {feature} لتعزيز تجربة الصحة النفسية والدعم الشامل.",
+    mental_cta_title: "ابدأ رحلتك نحو الصحة النفسية اليوم",
+    mental_cta_desc:
+      "احصل على علاج شخصي وأدوات الصحة النفسية لتحسين رفاهيتك العاطفية والنفسية.",
+    mental_pricing_basic: "أساسي",
+    mental_pricing_month: "شهريًا",
+    mental_pricing_basic_feature1: "جلسات علاجية أساسية",
+    mental_pricing_basic_feature2: "الوصول إلى مكتبة التأمل",
+    mental_pricing_basic_feature3: "الوصول إلى تطبيق الجوال",
+    mental_pricing_basic_feature4: "تقارير تقدم أسبوعية",
+    mental_pricing_basic_btn: "اختر الأساسي",
+    mental_pricing_popular: "الأكثر شيوعًا",
+    mental_pricing_premium: "مميز",
+    mental_pricing_premium_feature1: "كل ما في الأساسي",
+    mental_pricing_premium_feature2: "جلسات علاجية مباشرة",
+    mental_pricing_premium_feature3: "خطط علاجية شخصية",
+    mental_pricing_premium_feature4: "استشارة خبراء",
+    mental_pricing_premium_feature5: "دعم أولوية",
+    mental_pricing_premium_btn: "اختر المميز",
+    mental_pricing_pro: "احترافي",
+    mental_pricing_pro_feature1: "كل ما في المميز",
+    mental_pricing_pro_feature2: "جلسات علاج فردية",
+    mental_pricing_pro_feature3: "خطط علاجية مخصصة",
+    mental_pricing_pro_feature4: "الوصول إلى رحلات نهاية الأسبوع",
+    mental_pricing_pro_feature5: "الوصول إلى مجتمع VIP",
+    mental_pricing_pro_btn: "اختر الاحترافي",
+
     // Diet & Nutrition Page
     diet_hero_title1: "اكتشف",
     diet_hero_title2: "النظام الغذائي والتغذية",
-    diet_hero_desc: "حوّل صحتك مع إرشادات تغذية شخصية وعادات أكل مستدامة لصحة مثالية.",
+    diet_hero_desc:
+      "حوّل صحتك مع إرشادات تغذية شخصية وعادات أكل مستدامة لصحة مثالية.",
     diet_hero_btn: "ابدأ رحلتك",
     diet_video_not_supported: "متصفحك لا يدعم فيديو الخلفية.",
     diet_benefits_title1: "الفوائد",
     diet_benefits_title2: "الرئيسية",
-    diet_benefits_desc: "حوّل حياتك مع الفوائد المثبتة للتغذية السليمة والعادات الصحية",
+    diet_benefits_desc:
+      "حوّل حياتك مع الفوائد المثبتة للتغذية السليمة والعادات الصحية",
     diet_benefit_energy_title: "تحسين الطاقة",
-    diet_benefit_energy_desc: "عزز مستويات طاقتك اليومية وحيويتك من خلال تغذية متوازنة وتوقيت وجبات مناسب لجسمك.",
+    diet_benefit_energy_desc:
+      "عزز مستويات طاقتك اليومية وحيويتك من خلال تغذية متوازنة وتوقيت وجبات مناسب لجسمك.",
     diet_benefit_weight_title: "وزن صحي",
-    diet_benefit_weight_desc: "حقق وزنًا صحيًا وحافظ عليه من خلال استراتيجيات تغذية مستدامة تتوافق مع عملية الأيض الطبيعية لجسمك.",
+    diet_benefit_weight_desc:
+      "حقق وزنًا صحيًا وحافظ عليه من خلال استراتيجيات تغذية مستدامة تتوافق مع عملية الأيض الطبيعية لجسمك.",
     diet_benefit_transform_title: "حوّل صحتك",
-    diet_benefit_transform_desc: "اختبر الفوائد العميقة للتغذية السليمة التي تعزز صحتك الجسدية وصفاءك الذهني ورفاهيتك العامة.",
+    diet_benefit_transform_desc:
+      "اختبر الفوائد العميقة للتغذية السليمة التي تعزز صحتك الجسدية وصفاءك الذهني ورفاهيتك العامة.",
     diet_benefit_digestion_title: "تحسين الهضم",
-    diet_benefit_digestion_desc: "حسّن صحة جهازك الهضمي مع خطط تغذية تدعم صحة الأمعاء وتعزز امتصاص العناصر الغذائية.",
+    diet_benefit_digestion_desc:
+      "حسّن صحة جهازك الهضمي مع خطط تغذية تدعم صحة الأمعاء وتعزز امتصاص العناصر الغذائية.",
     diet_benefit_metabolism_title: "تعزيز الأيض",
-    diet_benefit_metabolism_desc: "عزز وظيفة الأيض لديك من خلال استراتيجيات تغذية مستهدفة لتحسين حرق الدهون الطبيعي في جسمك.",
+    diet_benefit_metabolism_desc:
+      "عزز وظيفة الأيض لديك من خلال استراتيجيات تغذية مستهدفة لتحسين حرق الدهون الطبيعي في جسمك.",
     diet_programs_title1: "البرامج التي",
     diet_programs_title2: "نقدمها",
     diet_program_personalized_title: "تخطيط وجبات شخصي",
@@ -599,10 +1023,14 @@ const translations = {
     diet_features_title1: "الميزات",
     diet_features_title2: "المتضمنة",
     diet_features_desc: "كل ما تحتاجه لتجربة تغذية متكاملة",
-    diet_features_p1: "منصتنا الشاملة توفر لك جميع الأدوات والموارد اللازمة لتحقيق أهدافك الصحية. من خطط الوجبات الشخصية إلى الإرشاد الخبير، كل شيء متوفر.",
-    diet_features_p2: "سواء كنت ترغب في فقدان الوزن أو بناء العضلات أو تحسين صحتك العامة، ميزاتنا مصممة لدعمك في كل خطوة، مما يجعل الأكل الصحي متاحًا وممتعًا.",
-    diet_features_p3: "منصتنا تدمج أحدث علوم التغذية مع تخطيط وجبات عملي، لتضمن لك أفضل الاستراتيجيات لأهدافك الصحية. مع تتبع التقدم الفوري والتوصيات التكيفية، تصبح رحلتك الغذائية أكثر فعالية واستدامة.",
-    diet_features_p4: "انضم إلى آلاف المستخدمين الذين غيروا صحتهم من خلال نهجنا الشامل للتغذية. اختبر الفرق الذي تصنعه خطط الوجبات الشخصية والإرشاد الخبير والدعم المستمر في رحلتك الصحية.",
+    diet_features_p1:
+      "منصتنا الشاملة توفر لك جميع الأدوات والموارد اللازمة لتحقيق أهدافك الصحية. من خطط الوجبات الشخصية إلى الإرشاد الخبير، كل شيء متوفر.",
+    diet_features_p2:
+      "سواء كنت ترغب في فقدان الوزن أو بناء العضلات أو تحسين صحتك العامة، ميزاتنا مصممة لدعمك في كل خطوة، مما يجعل الأكل الصحي متاحًا وممتعًا.",
+    diet_features_p3:
+      "منصتنا تدمج أحدث علوم التغذية مع تخطيط وجبات عملي، لتضمن لك أفضل الاستراتيجيات لأهدافك الصحية. مع تتبع التقدم الفوري والتوصيات التكيفية، تصبح رحلتك الغذائية أكثر فعالية واستدامة.",
+    diet_features_p4:
+      "انضم إلى آلاف المستخدمين الذين غيروا صحتهم من خلال نهجنا الشامل للتغذية. اختبر الفرق الذي تصنعه خطط الوجبات الشخصية والإرشاد الخبير والدعم المستمر في رحلتك الصحية.",
     diet_feature_mealplans: "خطط وجبات شخصية",
     diet_feature_tracking: "أدوات تتبع التغذية",
     diet_feature_recipes: "الوصول إلى قاعدة بيانات الوصفات",
@@ -1090,29 +1518,226 @@ const translations = {
     cta_img_alt: "رحلة العافية",
   },
   he: {
+    "fitness.pricing.mostPopular": "התוכנית הפופולרית ביותר",
+    "fitness.pricing.premium": "תוכנית פרימיום",
+    "fitness.pricing.premiumPrice": "$29.99",
+    "fitness.pricing.premiumFeature1":
+      "גישה לכל האימונים ותוכניות האימון בפרימיום",
+    "fitness.pricing.premiumFeature2": "אימון אישי ותמיכה",
+    "fitness.pricing.premiumFeature3": "גישה בלעדית לשיעורים ואירועים חיים",
+    "fitness.pricing.premiumFeature4": "תוכניות תזונה וארוחות מותאמות אישית",
+    "fitness.pricing.premiumFeature5": "תמיכת לקוחות בעדיפות גבוהה",
+    "fitness.pricing.premiumBtn": "בחר תוכנית פרימיום",
+    "fitness.pricing.pro": "תוכנית פרו",
+    "fitness.pricing.proPrice": "$49.99",
+    "fitness.pricing.proFeature1": "הכול כלול בפרימיום",
+    "fitness.pricing.proFeature2": "מעקב וניתוחים מתקדמים",
+    "fitness.pricing.proFeature3": "מפגשי אימון אישיים אחד על אחד",
+    "fitness.pricing.proFeature4": "גישה לסדנאות ואירועים בלעדיים",
+    "fitness.pricing.proFeature5": "תמיכה והדרכה ייעודית",
+    "fitness.pricing.proBtn": "בחר תוכנית פרו",
+    "fitness.pricing.title": "תוכניות תמחור משתלמות",
+    "fitness.pricing.subtitle": "בחר תוכנית שמתאימה לתקציב ולמטרות שלך",
+    "fitness.pricing.basic": "תוכנית בסיסית",
+    "fitness.pricing.basicPrice": "$19.99",
+    "fitness.pricing.month": "לחודש",
+    "fitness.pricing.basicFeature1":
+      "גישה לכל האימונים ותוכניות האימון הסטנדרטיות",
+    "fitness.pricing.basicFeature2": "המלצות אימון מותאמות אישית",
+    "fitness.pricing.basicFeature3": "גישה לתמיכת הקהילה ולמשאבים",
+    "fitness.pricing.basicFeature4": "גישה בלעדית לאימונים ותכונות חדשות",
+    "fitness.pricing.basicBtn": "בחר תוכנית בסיסית",
+
+    "fitness.features.title": "תכונות כלולות",
+    "fitness.features.subtitle": "הכול כדי לחוות חוויית כושר מלאה",
+    "fitness.features.desc1":
+      "הפלטפורמה המקיפה שלנו לכושר מספקת לך את כל הכלים והמשאבים הדרושים להשגת מטרות הכוח, הסיבולת והבריאות שלך. מהדרכה מותאמת אישית ועד ליווי מקצועי – דאגנו להכול.",
+    "fitness.features.desc2":
+      "בין אם אתה מתחיל או ספורטאי מנוסה, התכונות שלנו נועדו לתמוך במסע הכושר שלך בכל שלב, ולהפוך את האימון לנגיש ויעיל עבור כולם.",
+    "fitness.features.desc3":
+      "הפלטפורמה שלנו משלבת טכנולוגיות כושר מתקדמות עם שיטות אימון מוכחות, כדי להבטיח לך גישה לאסטרטגיות האימון הטובות ביותר. עם מעקב התקדמות בזמן אמת והמלצות מותאמות, מסע הכושר שלך הופך ליעיל ומעורר יותר.",
+    "fitness.features.desc4":
+      "הצטרף לאלפי משתמשים ששינו את גופם וחייהם באמצעות הגישה המקיפה שלנו לכושר. גלה את ההבדל שהדרכה מותאמת אישית, ליווי מקצועי ותמיכת הקהילה יכולים לעשות במסע הבריאות והכושר שלך.",
+    "fitness.howItWorks.title": "איך זה עובד",
+    "fitness.howItWorks.subtitle": "התחל את מסע הכושר שלך בכמה צעדים פשוטים",
+    "fitness.howItWorks.stepLabel": "שלב {number}",
+    "fitness.howItWorks.cta": "התחל את המסע שלך",
+    "fitness.programs.title": "תוכניות שאנו מציעים",
+    "fitness.benefits.title": "היתרונות המרכזיים של התוכניות שלנו",
+    "fitness.hero.title": "השג את מטרות הכושר שלך",
+    "fitness.hero.subtitle": "הצטרף לקהילה שלנו והתחל את המסע שלך היום",
+    "fitness.hero.button": "התחל עכשיו",
+    "fitness.benefits.subtitle": "גלה את היתרונות של תוכניות הכושר שלנו",
+    "fitness.benefits.strengthTitle": "אימוני כוח",
+    "fitness.benefits.strengthDesc":
+      "בנה שרירים והגדל את הכוח עם התוכניות המיוחדות שלנו",
+    "fitness.benefits.cardioTitle": "כושר קרדיו",
+    "fitness.benefits.cardioDesc":
+      "שפר את בריאות הלב והסיבולת שלך עם אימוני הקרדיו שלנו",
+    "fitness.benefits.weightTitle": "ניהול משקל",
+    "fitness.benefits.weightDesc":
+      "השג ושמור על משקל בריא עם התוכניות המותאמות שלנו",
+    "fitness.benefits.energyTitle": "רמות אנרגיה מוגברות",
+    "fitness.benefits.energyDesc":
+      "חווה עלייה באנרגיה ובחיוניות באמצעות פעילות גופנית סדירה",
+    "fitness.benefits.transformTitle": "תוצאות משנות חיים",
+    "fitness.benefits.transformDesc":
+      "השג תוצאות שמשנות חיים עם התוכניות המקיפות שלנו",
+    "fitness.programs.strength": "תוכניות אימון כוח",
+    "fitness.programs.strengthDesc":
+      "בנה שרירים והגדל כוח באמצעות אימוני התנגדות מתקדמים",
+    "fitness.programs.cardio": "שיעורי כושר קרדיו",
+    "fitness.programs.cardioDesc":
+      "שפר את בריאות הלב והסיבולת עם אימוני קרדיו דינמיים",
+    "fitness.programs.hiit": "מפגשי אימון HIIT",
+    "fitness.programs.hiitDesc":
+      "אימון אינטרוולים בעצימות גבוהה לשריפת שומן מקסימלית וכושר משופר",
+    "fitness.programs.functional": "אימוני כושר פונקציונליים",
+    "fitness.programs.functionalDesc":
+      "שפר דפוסי תנועה יומיומיים וכוח פונקציונלי כללי",
+    "fitness.programs.personal": "תוכניות אימון אישיות",
+    "fitness.programs.personalDesc":
+      "תוכניות כושר מותאמות אישית אחד על אחד למטרות שלך",
+    "fitness.programs.group": "שיעורי כושר קבוצתיים",
+    "fitness.programs.groupDesc":
+      "מפגשים קבוצתיים מעוררי מוטיבציה לכל רמות הכושר וההעדפות",
+
+    "fitness.howItWorks.step1": "השלם הערכת כושר והגדרת מטרות",
+    "fitness.howItWorks.step2": "קבל המלצות אימון מותאמות אישית",
+    "fitness.howItWorks.step3": "גש לתוכניות אימון ומדריכי וידאו",
+    "fitness.howItWorks.step4": "עקוב אחרי שגרות מובנות עם הדרכה מקצועית",
+    "fitness.howItWorks.step5": "עקוב אחרי ההתקדמות והתאם את תוכנית הכושר שלך",
+
+    "fitness.features.personalized": "תוכניות אימון מותאמות אישית",
+    "fitness.features.tracking": "כלי מעקב התקדמות",
+    "fitness.features.library": "ספריית סרטוני תרגילים",
+    "fitness.features.support": "תמיכת מדריכים מומחים",
+    mental_program_stress_title: "טיפול בניהול לחץ",
+    mental_program_stress_desc: "למד טכניקות יעילות לניהול והפחתת לחץ יומיומי",
+    mental_program_anxiety_title: "תוכניות להקלה על חרדה",
+    mental_program_anxiety_desc: "גישות מקיפות להתמודדות עם חרדה ודאגה",
+    mental_program_mindfulness_title: "מיינדפולנס ומדיטציה",
+    mental_program_mindfulness_desc:
+      "פיתוח תרגולי מיינדפולנס לבהירות נפשית ושלווה",
+    mental_program_cbt_title: "טיפול קוגניטיבי-התנהגותי",
+    mental_program_cbt_desc: "טיפול מבוסס ראיות לשיפור דפוסי חשיבה",
+    mental_program_emotional_title: "סדנאות רווחה רגשית",
+    mental_program_emotional_desc: "מפגשים קבוצתיים לאינטליגנציה רגשית וחוסן",
+    mental_program_sleep_title: "תוכניות לשיפור השינה",
+    mental_program_sleep_desc: "טכניקות מיוחדות לשינה טובה ומנוחה",
+    mental_how_step1: "השלם הערכת רווחה נפשית",
+    mental_how_step2: "קבל המלצות טיפול מותאמות אישית",
+    mental_how_step3: "גש למפגשים ומשאבים מודרכים",
+    mental_how_step4: "תרגל טכניקות בהדרכת מומחים",
+    mental_how_step5: "עקוב אחר ההתקדמות והתאם את הגישה",
+    mental_feature_personalized: "מפגשי טיפול מותאמים אישית",
+    mental_feature_tracking: "כלי מעקב לבריאות נפשית",
+    mental_feature_meditation: "ספריית מדיטציה מודרכת",
+    mental_feature_consultation: "תמיכה וייעוץ מומחים",
+    mental_hero_title1: "גלה",
+    mental_hero_title2: "בריאות נפשית",
+    mental_hero_desc:
+      "שפר את בריאותך הנפשית באמצעות טיפול אישי ותרגולי מיינדפולנס להשגת שלווה פנימית ואיזון רגשי.",
+    mental_hero_btn: "התחל את המסע שלך",
+    mental_video_not_supported: "הדפדפן שלך אינו תומך בתגית וידאו.",
+    mental_benefits_title1: "יתרונות",
+    mental_benefits_title2: "עיקריים",
+    mental_benefits_desc:
+      "שנה את חייך עם היתרונות המוכחים של תרגולי בריאות נפשית וטכניקות טיפוליות.",
+    mental_benefit_stress_title: "מפחית מתח",
+    mental_benefit_stress_desc:
+      "נהל והפחת רמות מתח בצורה יעילה באמצעות טכניקות טיפוליות מוכחות ותרגולי מיינדפולנס המותאמים לאתגרי החיים המודרניים.",
+    mental_benefit_emotional_title: "איזון רגשי",
+    mental_benefit_emotional_desc:
+      "פתח אינטליגנציה רגשית וכישורי ויסות לשמירה על איזון וחוסן במצבים מאתגרים.",
+    mental_benefit_transform_title: "שנה את מחשבתך",
+    mental_benefit_transform_desc:
+      "חווה את היתרונות העמוקים של בריאות נפשית שישפרו את הרווחה הרגשית, הקוגניטיבית והפסיכולוגית שלך.",
+    mental_benefit_sleep_title: "שינה טובה יותר",
+    mental_benefit_sleep_desc:
+      "שפר את איכות השינה שלך עם טכניקות הרפיה ותרגולי בריאות נפשית שמכינים את מחשבתך לשינה נינוחה.",
+    mental_benefit_clarity_title: "צלילות מחשבתית",
+    mental_benefit_clarity_desc:
+      "שפר את התפקוד הקוגניטיבי וצלילות המחשבה שלך באמצעות תרגולי מיינדפולנס וטכניקות טיפוליות.",
+    mental_benefits_img_alt: "יתרונות בריאות נפשית",
+    mental_programs_img_alt: "רקע תוכניות בריאות נפשית",
+    mental_programs_title1: "תוכניות שאנו",
+    mental_programs_title2: "מגישים",
+    mental_how_title1: "איך זה",
+    mental_how_title2: "עובד",
+    mental_how_desc: "התחל את מסע בריאות הנפש שלך בכמה צעדים פשוטים בלבד.",
+    mental_how_step_label: "שלב {number}",
+    mental_how_img_alt: "צעדי בריאות נפשית",
+    mental_features_title1: "מאפיינים",
+    mental_features_title2: "כלולים",
+    mental_features_desc: "הכול בשביל חוויה מלאה של בריאות נפשית.",
+    mental_features_p1:
+      "הפלטפורמה המקיפה שלנו לבריאות נפשית מספקת לך את כל הכלים והמשאבים הדרושים להשגת איזון רגשי ורווחה פסיכולוגית. מטיפול אישי ועד לייעוץ מקצועי – יש לנו הכול.",
+    mental_features_p2:
+      "בין אם אתה מתמודד עם מתח, חרדה או פשוט רוצה לשפר את בריאותך הנפשית, המאפיינים שלנו נבנו כדי לתמוך במסע שלך בכל שלב, ולהפוך את בריאות הנפש לנגישה ויעילה לכולם.",
+    mental_features_p3:
+      "הפלטפורמה שלנו משלבת גישות טיפוליות מבוססות-ראיות עם טכנולוגיה מודרנית, כדי להבטיח לך גישה לאסטרטגיות בריאות הנפש הטובות ביותר. עם מעקב התקדמות בזמן אמת והמלצות מותאמות, המסע שלך הופך ליעיל ובר-קיימא יותר.",
+    mental_features_p4:
+      "הצטרף לאלפי משתמשים ששינו את בריאותם הנפשית באמצעות הגישה המקיפה שלנו. גלה את ההבדל שטיפול אישי, ייעוץ מקצועי ותמיכה מתמשכת יכולים לעשות ברווחתך הרגשית והפסיכולוגית.",
+    mental_feature_card_desc:
+      "גישה ל-{feature} לחוויית בריאות נפשית משופרת ותמיכה מקיפה.",
+    mental_cta_title: "התחל את מסע בריאות הנפש שלך היום",
+    mental_cta_desc:
+      "קבל גישה לטיפול אישי וכלי בריאות נפשיים לשיפור הרווחה הרגשית והפסיכולוגית שלך.",
+    mental_pricing_basic: "בסיסי",
+    mental_pricing_month: "לחודש",
+    mental_pricing_basic_feature1: "מפגשי טיפול בסיסיים",
+    mental_pricing_basic_feature2: "גישה לספריית מדיטציה",
+    mental_pricing_basic_feature3: "גישה לאפליקציה לנייד",
+    mental_pricing_basic_feature4: "דוחות התקדמות שבועיים",
+    mental_pricing_basic_btn: "בחר בסיסי",
+    mental_pricing_popular: "הכי פופולרי",
+    mental_pricing_premium: "פרימיום",
+    mental_pricing_premium_feature1: "הכל בבסיסי",
+    mental_pricing_premium_feature2: "מפגשי טיפול חיים",
+    mental_pricing_premium_feature3: "תוכניות טיפול מותאמות אישית",
+    mental_pricing_premium_feature4: "ייעוץ מומחה",
+    mental_pricing_premium_feature5: "תמיכה בעדיפות",
+    mental_pricing_premium_btn: "בחר פרימיום",
+    mental_pricing_pro: "מקצועי",
+    mental_pricing_pro_feature1: "הכל בפרימיום",
+    mental_pricing_pro_feature2: "מפגשי טיפול אחד על אחד",
+    mental_pricing_pro_feature3: "תוכניות טיפול מותאמות אישית",
+    mental_pricing_pro_feature4: "גישה לריטריטים בסופי שבוע",
+    mental_pricing_pro_feature5: "גישה לקהילת VIP",
+    mental_pricing_pro_btn: "בחר מקצועי",
+
     // Diet & Nutrition Page
     diet_hero_title1: "גלה",
     diet_hero_title2: "תזונה ודיאטה",
-    diet_hero_desc: "שנה את בריאותך עם הדרכה תזונתית אישית והרגלי אכילה בריאים ומתמשכים לבריאות מיטבית.",
+    diet_hero_desc:
+      "שנה את בריאותך עם הדרכה תזונתית אישית והרגלי אכילה בריאים ומתמשכים לבריאות מיטבית.",
     diet_hero_btn: "התחל את המסע שלך",
     diet_video_not_supported: "הדפדפן שלך אינו תומך בוידאו.",
     diet_benefits_title1: "יתרונות",
     diet_benefits_title2: "עיקריים",
-    diet_benefits_desc: "שנה את חייך עם היתרונות המוכחים של תזונה נכונה והרגלי אכילה בריאים",
+    diet_benefits_desc:
+      "שנה את חייך עם היתרונות המוכחים של תזונה נכונה והרגלי אכילה בריאים",
     diet_benefit_energy_title: "משפר אנרגיה",
-    diet_benefit_energy_desc: "הגבר את רמות האנרגיה והחיוניות היומית שלך באמצעות תזונה מאוזנת ותזמון ארוחות נכון לגופך.",
+    diet_benefit_energy_desc:
+      "הגבר את רמות האנרגיה והחיוניות היומית שלך באמצעות תזונה מאוזנת ותזמון ארוחות נכון לגופך.",
     diet_benefit_weight_title: "משקל בריא",
-    diet_benefit_weight_desc: "השג ושמור על משקל בריא באמצעות אסטרטגיות תזונה מתמשכות המתאימות לחילוף החומרים הטבעי שלך.",
+    diet_benefit_weight_desc:
+      "השג ושמור על משקל בריא באמצעות אסטרטגיות תזונה מתמשכות המתאימות לחילוף החומרים הטבעי שלך.",
     diet_benefit_transform_title: "שנה את בריאותך",
-    diet_benefit_transform_desc: "חווה את היתרונות העמוקים של תזונה נכונה שישפרו את בריאותך הפיזית, הבהירות המנטלית והרווחה הכללית שלך.",
+    diet_benefit_transform_desc:
+      "חווה את היתרונות העמוקים של תזונה נכונה שישפרו את בריאותך הפיזית, הבהירות המנטלית והרווחה הכללית שלך.",
     diet_benefit_digestion_title: "שיפור העיכול",
-    diet_benefit_digestion_desc: "שפר את בריאות מערכת העיכול שלך עם תוכניות תזונה התומכות בבריאות המעיים ומקדמות ספיגת חומרים מזינים מיטבית.",
+    diet_benefit_digestion_desc:
+      "שפר את בריאות מערכת העיכול שלך עם תוכניות תזונה התומכות בבריאות המעיים ומקדמות ספיגת חומרים מזינים מיטבית.",
     diet_benefit_metabolism_title: "מגביר חילוף חומרים",
-    diet_benefit_metabolism_desc: "שפר את תפקוד חילוף החומרים שלך באמצעות אסטרטגיות תזונה ממוקדות לשיפור תהליכי שריפת השומן הטבעיים של גופך.",
+    diet_benefit_metabolism_desc:
+      "שפר את תפקוד חילוף החומרים שלך באמצעות אסטרטגיות תזונה ממוקדות לשיפור תהליכי שריפת השומן הטבעיים של גופך.",
     diet_programs_title1: "תוכניות שאנו",
     diet_programs_title2: "מגישים",
     diet_program_personalized_title: "תכנון ארוחות אישי",
-    diet_program_personalized_desc: "תוכניות תזונה מותאמות אישית למטרותיך ואורח חייך",
+    diet_program_personalized_desc:
+      "תוכניות תזונה מותאמות אישית למטרותיך ואורח חייך",
     diet_program_weight_title: "תוכניות ניהול משקל",
     diet_program_weight_desc: "גישות מתמשכות להשגת ושמירה על משקל בריא",
     diet_program_sports_title: "אימון תזונה לספורטאים",
@@ -1135,17 +1760,22 @@ const translations = {
     diet_features_title1: "תכונות",
     diet_features_title2: "כלולות",
     diet_features_desc: "הכל לחוויית תזונה שלמה",
-    diet_features_p1: "הפלטפורמה המקיפה שלנו מספקת את כל הכלים והמשאבים להשגת מטרות הבריאות והרווחה שלך. מתוכניות ארוחות אישיות ועד הדרכה מקצועית, הכל כלול.",
-    diet_features_p2: "בין אם אתה רוצה לרדת במשקל, לעלות במסת שריר או פשוט לשפר את הבריאות הכללית שלך, התכונות שלנו נועדו לתמוך בך בכל שלב, ולהפוך את האכילה הבריאה לנגישה ומהנה.",
-    diet_features_p3: "הפלטפורמה שלנו משלבת מדע תזונה מתקדם עם תכנון ארוחות מעשי, כדי להבטיח לך את האסטרטגיות הטובות ביותר למטרות הבריאות שלך. עם מעקב התקדמות בזמן אמת והמלצות מותאמות, מסע התזונה שלך הופך ליעיל ובר קיימא יותר.",
-    diet_features_p4: "הצטרף לאלפי משתמשים ששינו את בריאותם עם הגישה המקיפה שלנו לתזונה. חווה את ההבדל שתכנון ארוחות אישי, הדרכה מקצועית ותמיכה מתמשכת יכולים לעשות במסע הבריאות שלך.",
+    diet_features_p1:
+      "הפלטפורמה המקיפה שלנו מספקת את כל הכלים והמשאבים להשגת מטרות הבריאות והרווחה שלך. מתוכניות ארוחות אישיות ועד הדרכה מקצועית, הכל כלול.",
+    diet_features_p2:
+      "בין אם אתה רוצה לרדת במשקל, לעלות במסת שריר או פשוט לשפר את הבריאות הכללית שלך, התכונות שלנו נועדו לתמוך בך בכל שלב, ולהפוך את האכילה הבריאה לנגישה ומהנה.",
+    diet_features_p3:
+      "הפלטפורמה שלנו משלבת מדע תזונה מתקדם עם תכנון ארוחות מעשי, כדי להבטיח לך את האסטרטגיות הטובות ביותר למטרות הבריאות שלך. עם מעקב התקדמות בזמן אמת והמלצות מותאמות, מסע התזונה שלך הופך ליעיל ובר קיימא יותר.",
+    diet_features_p4:
+      "הצטרף לאלפי משתמשים ששינו את בריאותם עם הגישה המקיפה שלנו לתזונה. חווה את ההבדל שתכנון ארוחות אישי, הדרכה מקצועית ותמיכה מתמשכת יכולים לעשות במסע הבריאות שלך.",
     diet_feature_mealplans: "תוכניות ארוחות אישיות",
     diet_feature_tracking: "כלי מעקב תזונה",
     diet_feature_recipes: "גישה למאגר מתכונים",
     diet_feature_consult: "תמיכה בייעוץ מקצועי",
     diet_feature_card_desc: "גישה ל{feature} לחוויית תזונה משופרת ותמיכה מלאה.",
     diet_cta_title: "התחל את מסע התזונה שלך היום",
-    diet_cta_desc: "קבל גישה לתוכניות תזונה אישיות וכלי בריאות לשיפור הבריאות והחיוניות שלך.",
+    diet_cta_desc:
+      "קבל גישה לתוכניות תזונה אישיות וכלי בריאות לשיפור הבריאות והחיוניות שלך.",
     diet_pricing_basic: "בסיסי",
     diet_pricing_basic_btn: "בחר בסיסי",
     diet_pricing_premium: "פרימיום",

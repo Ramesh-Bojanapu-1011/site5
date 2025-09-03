@@ -122,7 +122,8 @@ const DietNutrition = () => {
             className="mb-6 text-3xl font-bold leading-tight text-center text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl sm:mb-8"
             data-aos="fade-up"
           >
-            {t("diet_hero_title1")} <span className="text-teal-500">{t("diet_hero_title2")}</span>
+            {t("diet_hero_title1")}{" "}
+            <span className="text-teal-500">{t("diet_hero_title2")}</span>
           </h1>
           <p
             className="max-w-4xl mx-auto mb-8 text-lg leading-relaxed text-white sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl sm:mb-10"
@@ -164,7 +165,10 @@ const DietNutrition = () => {
                 isDarkMode ? "text-white" : "text-gray-800"
               }`}
             >
-              {t("diet_benefits_title1")} <span className="text-[#26A0A2]">{t("diet_benefits_title2")}</span>
+              {t("diet_benefits_title1")}{" "}
+              <span className="text-[#26A0A2]">
+                {t("diet_benefits_title2")}
+              </span>
             </h2>
             <p
               className={`text-base sm:text-lg max-w-2xl mx-auto ${
@@ -400,7 +404,8 @@ const DietNutrition = () => {
             <h2
               className={`text-3xl sm:text-4xl md:text-5xl font-bold text-white`}
             >
-              {t("diet_programs_title1")} <span className="text-white">{t("diet_programs_title2")}</span>
+              {t("diet_programs_title1")}{" "}
+              <span className="text-white">{t("diet_programs_title2")}</span>
             </h2>
           </div>
 
@@ -462,7 +467,8 @@ const DietNutrition = () => {
                     isDarkMode ? "text-white" : "text-gray-800"
                   }`}
                 >
-                  {t("diet_how_title1")} <span className="text-[#26A0A2]">{t("diet_how_title2")}</span>
+                  {t("diet_how_title1")}{" "}
+                  <span className="text-[#26A0A2]">{t("diet_how_title2")}</span>
                 </h2>
                 <p
                   className={`text-base sm:text-lg ${
@@ -494,7 +500,10 @@ const DietNutrition = () => {
                           isDarkMode ? "text-white" : "text-gray-800"
                         }`}
                       >
-                        {t("diet_how_step_label").replace("{number}", index + 1)}
+                        {t("diet_how_step_label").replace(
+                          "{number}",
+                          index + 1,
+                        )}
                       </h3>
                       <p
                         className={`text-base ${
@@ -557,7 +566,10 @@ const DietNutrition = () => {
             >
               <div>
                 <h2 className="mb-6 text-3xl font-bold text-white sm:text-4xl md:text-5xl">
-                  <span className="text-white">{t("diet_features_title1")}</span> {t("diet_features_title2")}
+                  <span className="text-white">
+                    {t("diet_features_title1")}
+                  </span>{" "}
+                  {t("diet_features_title2")}
                 </h2>
                 <p className="mb-8 text-lg text-white sm:text-xl">
                   {t("diet_features_desc")}
@@ -673,37 +685,96 @@ const DietNutrition = () => {
             <div className="grid grid-cols-1 gap-8 mb-12 md:grid-cols-3">
               {/* Basic Plan */}
               <div className="bg-gray-50 rounded-2xl p-6 border-2 border-gray-200 hover:border-[#26A0A2] transition-all duration-300">
-                <h3 className="mb-2 text-2xl font-bold text-gray-800">{t("diet_pricing_basic")}</h3>
+                <h3 className="mb-2 text-2xl font-bold text-gray-800">
+                  {t("diet_pricing_basic")}
+                </h3>
                 <div className="text-4xl font-bold text-[#26A0A2] mb-4">
                   $29<span className="text-lg text-gray-600">/month</span>
                 </div>
                 <ul className="mb-6 space-y-3 text-left">
-                  <li className="flex items-center" data-aos="fade-right" data-aos-delay="250" data-aos-once="false">
-                    <svg className="w-5 h-5 text-[#26A0A2] mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <li
+                    className="flex items-center"
+                    data-aos="fade-right"
+                    data-aos-delay="250"
+                    data-aos-once="false"
+                  >
+                    <svg
+                      className="w-5 h-5 text-[#26A0A2] mr-3"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     {t("diet_pricing_basic_feature1")}
                   </li>
-                  <li className="flex items-center" data-aos="fade-right" data-aos-delay="300" data-aos-once="false">
-                    <svg className="w-5 h-5 text-[#26A0A2] mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <li
+                    className="flex items-center"
+                    data-aos="fade-right"
+                    data-aos-delay="300"
+                    data-aos-once="false"
+                  >
+                    <svg
+                      className="w-5 h-5 text-[#26A0A2] mr-3"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     {t("diet_pricing_basic_feature2")}
                   </li>
-                  <li className="flex items-center" data-aos="fade-right" data-aos-delay="350" data-aos-once="false">
-                    <svg className="w-5 h-5 text-[#26A0A2] mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <li
+                    className="flex items-center"
+                    data-aos="fade-right"
+                    data-aos-delay="350"
+                    data-aos-once="false"
+                  >
+                    <svg
+                      className="w-5 h-5 text-[#26A0A2] mr-3"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     {t("diet_pricing_basic_feature3")}
                   </li>
-                  <li className="flex items-center" data-aos="fade-right" data-aos-delay="400" data-aos-once="false">
-                    <svg className="w-5 h-5 text-[#26A0A2] mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <li
+                    className="flex items-center"
+                    data-aos="fade-right"
+                    data-aos-delay="400"
+                    data-aos-once="false"
+                  >
+                    <svg
+                      className="w-5 h-5 text-[#26A0A2] mr-3"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     {t("diet_pricing_basic_feature4")}
                   </li>
                 </ul>
-                <button className="w-full px-6 py-3 font-semibold text-gray-800 transition-colors duration-300 transform bg-gray-200 rounded-lg hover:bg-gray-300 hover:scale-105" data-aos="fade-up" data-aos-delay="450" data-aos-once="false">
+                <button
+                  className="w-full px-6 py-3 font-semibold text-gray-800 transition-colors duration-300 transform bg-gray-200 rounded-lg hover:bg-gray-300 hover:scale-105"
+                  data-aos="fade-up"
+                  data-aos-delay="450"
+                  data-aos-once="false"
+                >
                   {t("diet_pricing_basic_btn")}
                 </button>
               </div>
@@ -735,33 +806,98 @@ const DietNutrition = () => {
                   $59<span className="text-lg text-gray-100">/month</span>
                 </div>
                 <ul className="mb-6 space-y-3 text-left text-white">
-                  <li className="flex items-center" data-aos="fade-right" data-aos-delay="350" data-aos-once="false">
-                    <svg className="w-5 h-5 mr-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <li
+                    className="flex items-center"
+                    data-aos="fade-right"
+                    data-aos-delay="350"
+                    data-aos-once="false"
+                  >
+                    <svg
+                      className="w-5 h-5 mr-3 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     {t("diet_pricing_premium_feature1")}
                   </li>
-                  <li className="flex items-center" data-aos="fade-right" data-aos-delay="400" data-aos-once="false">
-                    <svg className="w-5 h-5 mr-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <li
+                    className="flex items-center"
+                    data-aos="fade-right"
+                    data-aos-delay="400"
+                    data-aos-once="false"
+                  >
+                    <svg
+                      className="w-5 h-5 mr-3 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     {t("diet_pricing_premium_feature2")}
                   </li>
-                  <li className="flex items-center" data-aos="fade-right" data-aos-delay="450" data-aos-once="false">
-                    <svg className="w-5 h-5 mr-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <li
+                    className="flex items-center"
+                    data-aos="fade-right"
+                    data-aos-delay="450"
+                    data-aos-once="false"
+                  >
+                    <svg
+                      className="w-5 h-5 mr-3 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     {t("diet_pricing_premium_feature3")}
                   </li>
-                  <li className="flex items-center" data-aos="fade-right" data-aos-delay="500" data-aos-once="false">
-                    <svg className="w-5 h-5 mr-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <li
+                    className="flex items-center"
+                    data-aos="fade-right"
+                    data-aos-delay="500"
+                    data-aos-once="false"
+                  >
+                    <svg
+                      className="w-5 h-5 mr-3 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     {t("diet_pricing_premium_feature4")}
                   </li>
-                  <li className="flex items-center" data-aos="fade-right" data-aos-delay="550" data-aos-once="false">
-                    <svg className="w-5 h-5 mr-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <li
+                    className="flex items-center"
+                    data-aos="fade-right"
+                    data-aos-delay="550"
+                    data-aos-once="false"
+                  >
+                    <svg
+                      className="w-5 h-5 mr-3 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     {t("diet_pricing_premium_feature5")}
                   </li>
@@ -795,33 +931,98 @@ const DietNutrition = () => {
                   $99<span className="text-lg text-gray-600">/month</span>
                 </div>
                 <ul className="mb-6 space-y-3 text-left">
-                  <li className="flex items-center" data-aos="fade-right" data-aos-delay="450" data-aos-once="false">
-                    <svg className="w-5 h-5 text-[#26A0A2] mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <li
+                    className="flex items-center"
+                    data-aos="fade-right"
+                    data-aos-delay="450"
+                    data-aos-once="false"
+                  >
+                    <svg
+                      className="w-5 h-5 text-[#26A0A2] mr-3"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     {t("diet_pricing_pro_feature1")}
                   </li>
-                  <li className="flex items-center" data-aos="fade-right" data-aos-delay="500" data-aos-once="false">
-                    <svg className="w-5 h-5 text-[#26A0A2] mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <li
+                    className="flex items-center"
+                    data-aos="fade-right"
+                    data-aos-delay="500"
+                    data-aos-once="false"
+                  >
+                    <svg
+                      className="w-5 h-5 text-[#26A0A2] mr-3"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     {t("diet_pricing_pro_feature2")}
                   </li>
-                  <li className="flex items-center" data-aos="fade-right" data-aos-delay="550" data-aos-once="false">
-                    <svg className="w-5 h-5 text-[#26A0A2] mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <li
+                    className="flex items-center"
+                    data-aos="fade-right"
+                    data-aos-delay="550"
+                    data-aos-once="false"
+                  >
+                    <svg
+                      className="w-5 h-5 text-[#26A0A2] mr-3"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     {t("diet_pricing_pro_feature3")}
                   </li>
-                  <li className="flex items-center" data-aos="fade-right" data-aos-delay="600" data-aos-once="false">
-                    <svg className="w-5 h-5 text-[#26A0A2] mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <li
+                    className="flex items-center"
+                    data-aos="fade-right"
+                    data-aos-delay="600"
+                    data-aos-once="false"
+                  >
+                    <svg
+                      className="w-5 h-5 text-[#26A0A2] mr-3"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     {t("diet_pricing_pro_feature4")}
                   </li>
-                  <li className="flex items-center" data-aos="fade-right" data-aos-delay="650" data-aos-once="false">
-                    <svg className="w-5 h-5 text-[#26A0A2] mr-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <li
+                    className="flex items-center"
+                    data-aos="fade-right"
+                    data-aos-delay="650"
+                    data-aos-once="false"
+                  >
+                    <svg
+                      className="w-5 h-5 text-[#26A0A2] mr-3"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                     {t("diet_pricing_pro_feature5")}
                   </li>
@@ -839,7 +1040,7 @@ const DietNutrition = () => {
           </div>
         </div>
       </section>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

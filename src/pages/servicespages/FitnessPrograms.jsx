@@ -5,6 +5,8 @@ import "../../aos-custom.css";
 import fitnessHeroVideo from "../../assets/fithero.mp4";
 import fitnessBenefitsBg from "../../assets/fitsbenefits.jpg";
 import fitnessSteps from "../../assets/fitsteps.jpg";
+import { useLanguage } from "../../utils/LanguageContext";
+import Footer from "../../footer.jsx";
 
 const FitnessPrograms = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -34,138 +36,120 @@ const FitnessPrograms = () => {
     });
   }, []);
 
-  const benefits = [
-    "Builds strength and muscle mass",
-    "Improves cardiovascular health",
-    "Enhances endurance and stamina",
-    "Promotes weight management",
-    "Supports bone density and joint health",
-    "Boosts energy and metabolism",
-  ];
-
+  const { t } = useLanguage();
   const programs = [
     {
-      title: "Strength Training Programs",
-      description:
-        "Build muscle and increase strength with progressive resistance training",
+      title: t("fitness.programs.strength"),
+      description: t("fitness.programs.strengthDesc"),
     },
     {
-      title: "Cardio Fitness Classes",
-      description:
-        "Improve heart health and endurance with dynamic cardio workouts",
+      title: t("fitness.programs.cardio"),
+      description: t("fitness.programs.cardioDesc"),
     },
     {
-      title: "HIIT Training Sessions",
-      description:
-        "High-intensity interval training for maximum fat burning and fitness",
+      title: t("fitness.programs.hiit"),
+      description: t("fitness.programs.hiitDesc"),
     },
     {
-      title: "Functional Fitness Training",
-      description:
-        "Improve daily movement patterns and overall functional strength",
+      title: t("fitness.programs.functional"),
+      description: t("fitness.programs.functionalDesc"),
     },
     {
-      title: "Personal Training Programs",
-      description:
-        "One-on-one customized fitness plans for your specific goals",
+      title: t("fitness.programs.personal"),
+      description: t("fitness.programs.personalDesc"),
     },
     {
-      title: "Group Fitness Classes",
-      description:
-        "Motivating group sessions for all fitness levels and preferences",
+      title: t("fitness.programs.group"),
+      description: t("fitness.programs.groupDesc"),
     },
   ];
-
   const howItWorks = [
-    "Complete a fitness assessment and goal setting",
-    "Receive personalized workout recommendations",
-    "Access training programs and video guides",
-    "Follow structured routines with expert guidance",
-    "Track progress and adjust your fitness plan",
+    t("fitness.howItWorks.step1"),
+    t("fitness.howItWorks.step2"),
+    t("fitness.howItWorks.step3"),
+    t("fitness.howItWorks.step4"),
+    t("fitness.howItWorks.step5"),
   ];
-
   const features = [
-    "Personalized workout plans",
-    "Progress tracking tools",
-    "Video exercise library",
-    "Expert trainer support",
+    t("fitness.features.personalized"),
+    t("fitness.features.tracking"),
+    t("fitness.features.library"),
+    t("fitness.features.support"),
   ];
-
   return (
     <div
-      className={`min-h-screen w-full overflow-x-hidden transition-colors duration-300 ${isDarkMode ? "bg-gray-900" : "bg-white"}`}
+      className={`min-h-screen w-full overflow-x-hidden transition-colors duration-300 ${
+        isDarkMode ? "bg-gray-900" : "bg-white"
+      }`}
     >
       <Header />
-
       {/* Hero Section */}
-      <section className="w-full h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-16 relative overflow-hidden max-w-full">
-        {/* Video Background */}
+      <section className="relative flex items-center justify-center w-full h-screen max-w-full px-4 overflow-hidden sm:px-6 md:px-8 lg:px-16">
         <video
           autoPlay
           muted
           loop
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 object-cover w-full h-full"
         >
           <source src={fitnessHeroVideo} type="video/mp4" />
-          Your browser does not support the video tag.
+          {t("fitness.hero.noVideoSupport")}
         </video>
-
-        {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-
-        <div className="relative z-10 text-center max-w-4xl px-4 w-full">
+        <div className="relative z-10 w-full max-w-4xl px-4 text-center">
           <h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 sm:mb-8 leading-tight text-center"
+            className="mb-6 text-3xl font-bold leading-tight text-center text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl sm:mb-8"
             data-aos="fade-up"
           >
-            Discover <span className="text-teal-500">Fitness Programs</span>
+            {t("fitness.hero.title")}
           </h1>
           <p
-            className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white mb-8 sm:mb-10 max-w-4xl mx-auto leading-relaxed"
+            className="max-w-4xl mx-auto mb-8 text-lg leading-relaxed text-white sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl sm:mb-10"
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            Transform your body and mind with comprehensive fitness programs
-            designed for all levels and goals.
+            {t("fitness.hero.subtitle")}
           </p>
           <button
             className="bg-white text-[#26A0A2] font-semibold px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full shadow-lg hover:bg-gray-100 transition text-base sm:text-lg md:text-xl transform hover:scale-105"
             data-aos="fade-up"
             data-aos-delay="400"
           >
-            Start Your Journey
+            {t("fitness.hero.button")}
           </button>
         </div>
       </section>
-
       {/* Key Benefits Section */}
       <section
-        className={`w-full text-justify py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDarkMode ? "bg-black" : "bg-white"}`}
+        className={`w-full text-justify py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
+          isDarkMode ? "bg-black" : "bg-white"
+        }`}
         data-aos="fade-up"
         data-aos-duration="1000"
         data-aos-once="false"
       >
-        <div className="max-w-7xl mx-auto w-full overflow-hidden">
+        <div className="w-full mx-auto overflow-hidden max-w-7xl">
           <div
-            className="text-center mb-16"
+            className="mb-16 text-center"
             data-aos="fade-up"
             data-aos-delay="200"
             data-aos-once="false"
           >
             <h2
-              className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-800"}`}
+              className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${
+                isDarkMode ? "text-white" : "text-gray-800"
+              }`}
             >
-              Key <span className="text-[#26A0A2]">Benefits</span>
+              {t("fitness.benefits.title")}
             </h2>
             <p
-              className={`text-base sm:text-lg max-w-2xl mx-auto ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+              className={`text-base sm:text-lg max-w-2xl mx-auto ${
+                isDarkMode ? "text-gray-300" : "text-gray-600"
+              }`}
             >
-              Transform your life with the proven benefits of regular fitness
-              training and exercise programs
+              {t("fitness.benefits.subtitle")}
             </p>
           </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-center">
+          <div className="grid items-center grid-cols-1 gap-6 lg:grid-cols-3 sm:gap-8">
             {/* Left Cards */}
             <div
               className="space-y-4 sm:space-y-6"
@@ -174,12 +158,14 @@ const FitnessPrograms = () => {
               data-aos-once="false"
             >
               <div
-                className={`p-4 sm:p-6 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 h-auto min-h-[200px] sm:min-h-[256px] ${isDarkMode ? "bg-gray-800" : "bg-white"}`}
+                className={`p-4 sm:p-6 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 h-auto min-h-[200px] sm:min-h-[256px] ${
+                  isDarkMode ? "bg-gray-800" : "bg-white"
+                }`}
                 data-aos="fade-right"
                 data-aos-delay="400"
                 data-aos-once="false"
               >
-                <div className="flex items-center space-x-4 mb-4">
+                <div className="flex items-center mb-4 space-x-4">
                   <div className="w-12 h-12 bg-[#26A0A2] rounded-full flex items-center justify-center flex-shrink-0">
                     <svg
                       className="w-6 h-6 text-white"
@@ -194,27 +180,30 @@ const FitnessPrograms = () => {
                     </svg>
                   </div>
                   <h3
-                    className={`text-xl font-bold ${isDarkMode ? "text-white" : "text-gray-800"}`}
+                    className={`text-xl font-bold ${
+                      isDarkMode ? "text-white" : "text-gray-800"
+                    }`}
                   >
-                    Builds Strength
+                    {t("fitness.benefits.strengthTitle")}
                   </h3>
                 </div>
                 <p
-                  className={`text-base ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+                  className={`text-base ${
+                    isDarkMode ? "text-gray-300" : "text-gray-600"
+                  }`}
                 >
-                  Develop muscle mass and increase overall strength through
-                  progressive resistance training and targeted exercises
-                  designed for all fitness levels.
+                  {t("fitness.benefits.strengthDesc")}
                 </p>
               </div>
-
               <div
-                className={`p-4 sm:p-6 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 h-auto min-h-[200px] sm:min-h-[256px] ${isDarkMode ? "bg-gray-800" : "bg-white"}`}
+                className={`p-4 sm:p-6 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 h-auto min-h-[200px] sm:min-h-[256px] ${
+                  isDarkMode ? "bg-gray-800" : "bg-white"
+                }`}
                 data-aos="fade-right"
                 data-aos-delay="500"
                 data-aos-once="false"
               >
-                <div className="flex items-center space-x-4 mb-4">
+                <div className="flex items-center mb-4 space-x-4">
                   <div className="w-12 h-12 bg-[#26A0A2] rounded-full flex items-center justify-center flex-shrink-0">
                     <svg
                       className="w-6 h-6 text-white"
@@ -229,21 +218,22 @@ const FitnessPrograms = () => {
                     </svg>
                   </div>
                   <h3
-                    className={`text-xl font-bold ${isDarkMode ? "text-white" : "text-gray-800"}`}
+                    className={`text-xl font-bold ${
+                      isDarkMode ? "text-white" : "text-gray-800"
+                    }`}
                   >
-                    Cardiovascular Health
+                    {t("fitness.benefits.cardioTitle")}
                   </h3>
                 </div>
                 <p
-                  className={`text-base ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+                  className={`text-base ${
+                    isDarkMode ? "text-gray-300" : "text-gray-600"
+                  }`}
                 >
-                  Improve heart health and circulation through cardio exercises
-                  that strengthen your cardiovascular system and boost
-                  endurance.
+                  {t("fitness.benefits.cardioDesc")}
                 </p>
               </div>
             </div>
-
             {/* Center Image */}
             <div
               className="flex flex-col items-center text-center"
@@ -251,27 +241,28 @@ const FitnessPrograms = () => {
               data-aos-delay="600"
               data-aos-once="false"
             >
-              <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden shadow-2xl mb-4 sm:mb-6">
+              <div className="w-48 h-48 mb-4 overflow-hidden shadow-2xl sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl sm:mb-6">
                 <img
                   src={fitnessBenefitsBg}
-                  alt="Fitness Benefits"
-                  className="w-full h-full object-cover"
+                  alt={t("fitness.benefits.imgAlt")}
+                  className="object-cover w-full h-full"
                 />
               </div>
               <h3
-                className={`text-2xl sm:text-3xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-800"}`}
+                className={`text-2xl sm:text-3xl font-bold mb-4 ${
+                  isDarkMode ? "text-white" : "text-gray-800"
+                }`}
               >
-                Transform Your Body
+                {t("fitness.benefits.transformTitle")}
               </h3>
               <p
-                className={`text-lg max-w-md ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+                className={`text-lg max-w-md ${
+                  isDarkMode ? "text-gray-300" : "text-gray-600"
+                }`}
               >
-                Experience the profound benefits of fitness training that will
-                enhance your physical strength, endurance, and overall
-                well-being.
+                {t("fitness.benefits.transformDesc")}
               </p>
             </div>
-
             {/* Right Cards */}
             <div
               className="space-y-4 sm:space-y-6"
@@ -280,12 +271,14 @@ const FitnessPrograms = () => {
               data-aos-once="false"
             >
               <div
-                className={`p-4 sm:p-6 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 h-auto min-h-[200px] sm:min-h-[256px] ${isDarkMode ? "bg-gray-800" : "bg-white"}`}
+                className={`p-4 sm:p-6 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 h-auto min-h-[200px] sm:min-h-[256px] ${
+                  isDarkMode ? "bg-gray-800" : "bg-white"
+                }`}
                 data-aos="fade-left"
                 data-aos-delay="400"
                 data-aos-once="false"
               >
-                <div className="flex items-center space-x-4 mb-4">
+                <div className="flex items-center mb-4 space-x-4">
                   <div className="w-12 h-12 bg-[#26A0A2] rounded-full flex items-center justify-center flex-shrink-0">
                     <svg
                       className="w-6 h-6 text-white"
@@ -300,27 +293,30 @@ const FitnessPrograms = () => {
                     </svg>
                   </div>
                   <h3
-                    className={`text-xl font-bold ${isDarkMode ? "text-white" : "text-gray-800"}`}
+                    className={`text-xl font-bold ${
+                      isDarkMode ? "text-white" : "text-gray-800"
+                    }`}
                   >
-                    Weight Management
+                    {t("fitness.benefits.weightTitle")}
                   </h3>
                 </div>
                 <p
-                  className={`text-base ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+                  className={`text-base ${
+                    isDarkMode ? "text-gray-300" : "text-gray-600"
+                  }`}
                 >
-                  Achieve and maintain your ideal weight through effective
-                  fitness programs that boost metabolism and burn calories
-                  efficiently.
+                  {t("fitness.benefits.weightDesc")}
                 </p>
               </div>
-
               <div
-                className={`p-4 sm:p-6 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 h-auto min-h-[200px] sm:min-h-[256px] ${isDarkMode ? "bg-gray-800" : "bg-white"}`}
+                className={`p-4 sm:p-6 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 h-auto min-h-[200px] sm:min-h-[256px] ${
+                  isDarkMode ? "bg-gray-800" : "bg-white"
+                }`}
                 data-aos="fade-left"
                 data-aos-delay="500"
                 data-aos-once="false"
               >
-                <div className="flex items-center space-x-4 mb-4">
+                <div className="flex items-center mb-4 space-x-4">
                   <div className="w-12 h-12 bg-[#26A0A2] rounded-full flex items-center justify-center flex-shrink-0">
                     <svg
                       className="w-6 h-6 text-white"
@@ -335,17 +331,19 @@ const FitnessPrograms = () => {
                     </svg>
                   </div>
                   <h3
-                    className={`text-xl font-bold ${isDarkMode ? "text-white" : "text-gray-800"}`}
+                    className={`text-xl font-bold ${
+                      isDarkMode ? "text-white" : "text-gray-800"
+                    }`}
                   >
-                    Boosts Energy
+                    {t("fitness.benefits.energyTitle")}
                   </h3>
                 </div>
                 <p
-                  className={`text-base ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+                  className={`text-base ${
+                    isDarkMode ? "text-gray-300" : "text-gray-600"
+                  }`}
                 >
-                  Increase your energy levels and vitality through regular
-                  exercise that enhances your metabolism and overall physical
-                  performance.
+                  {t("fitness.benefits.energyDesc")}
                 </p>
               </div>
             </div>
@@ -362,25 +360,29 @@ const FitnessPrograms = () => {
           <img
             src="/src/assets/fitserve.jpg"
             alt="Fitness Programs Background"
-            className="w-full h-full object-cover"
+            className="object-cover w-full h-full"
           />
           <div className="absolute inset-0 bg-[#26A0A2] bg-opacity-70"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-10 w-full overflow-hidden">
+        <div className="relative z-10 w-full mx-auto overflow-hidden max-w-7xl">
           <div className="mb-12" data-aos="fade-up">
             <h2
               className={`text-3xl sm:text-4xl md:text-5xl font-bold text-white`}
             >
-              Programs we <span className="text-white">serve</span>
+              {t("fitness.programs.title")}
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 sm:gap-12">
             {programs.map((program, index) => (
               <div
                 key={index}
-                className={`transform transition-all duration-300 hover:scale-105 rounded-2xl p-6 shadow-lg ${isDarkMode ? "bg-gray-800 bg-opacity-90 backdrop-blur-sm" : "bg-white bg-opacity-90 backdrop-blur-sm"}`}
+                className={`transform transition-all duration-300 hover:scale-105 rounded-2xl p-6 shadow-lg ${
+                  isDarkMode
+                    ? "bg-gray-800 bg-opacity-90 backdrop-blur-sm"
+                    : "bg-white bg-opacity-90 backdrop-blur-sm"
+                }`}
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
                 data-aos-once="false"
@@ -391,12 +393,16 @@ const FitnessPrograms = () => {
                   </span>
                 </div>
                 <h3
-                  className={`text-xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-800"}`}
+                  className={`text-xl font-bold mb-4 ${
+                    isDarkMode ? "text-white" : "text-gray-800"
+                  }`}
                 >
                   {program.title}
                 </h3>
                 <p
-                  className={`text-base leading-relaxed ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+                  className={`text-base leading-relaxed ${
+                    isDarkMode ? "text-gray-300" : "text-gray-600"
+                  }`}
                 >
                   {program.description}
                 </p>
@@ -408,10 +414,12 @@ const FitnessPrograms = () => {
 
       {/* How It Works Section */}
       <section
-        className={`w-full py-12 sm:py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDarkMode ? "bg-black" : "bg-white"}`}
+        className={`w-full py-12 sm:py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
+          isDarkMode ? "bg-black" : "bg-white"
+        }`}
       >
-        <div className="max-w-7xl mx-auto w-full overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+        <div className="w-full mx-auto overflow-hidden max-w-7xl">
+          <div className="grid items-stretch grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
             {/* Left Side - Content */}
             <div
               className="flex flex-col space-y-8"
@@ -420,15 +428,18 @@ const FitnessPrograms = () => {
             >
               <div>
                 <h2
-                  className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-800"}`}
+                  className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${
+                    isDarkMode ? "text-white" : "text-gray-800"
+                  }`}
                 >
-                  How It <span className="text-[#26A0A2]">Works</span>
+                  {t("fitness.howItWorks.title")}
                 </h2>
                 <p
-                  className={`text-base sm:text-lg ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+                  className={`text-base sm:text-lg ${
+                    isDarkMode ? "text-gray-300" : "text-gray-600"
+                  }`}
                 >
-                  Get started with your fitness journey in just a few simple
-                  steps
+                  {t("fitness.howItWorks.subtitle")}
                 </p>
               </div>
 
@@ -449,12 +460,19 @@ const FitnessPrograms = () => {
                     </div>
                     <div className="flex-1">
                       <h3
-                        className={`text-lg font-bold mb-2 ${isDarkMode ? "text-white" : "text-gray-800"}`}
+                        className={`text-lg font-bold mb-2 ${
+                          isDarkMode ? "text-white" : "text-gray-800"
+                        }`}
                       >
-                        Step {index + 1}
+                        {t("fitness.howItWorks.stepLabel").replace(
+                          "{number}",
+                          index + 1,
+                        )}
                       </h3>
                       <p
-                        className={`text-base ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+                        className={`text-base ${
+                          isDarkMode ? "text-gray-300" : "text-gray-600"
+                        }`}
                       >
                         {step}
                       </p>
@@ -466,14 +484,14 @@ const FitnessPrograms = () => {
               {/* CTA Button */}
               <div className="pt-4">
                 <button className="bg-[#26A0A2] text-white font-semibold py-3 px-8 rounded-lg hover:bg-[#20c997] transition-colors duration-300 transform hover:scale-105">
-                  Start Your Journey
+                  {t("fitness.howItWorks.cta")}
                 </button>
               </div>
             </div>
 
             {/* Right Side - Image */}
             <div
-              className="flex justify-center lg:justify-end items-start"
+              className="flex items-start justify-center lg:justify-end"
               data-aos="fade-left"
               data-aos-once="false"
             >
@@ -482,14 +500,14 @@ const FitnessPrograms = () => {
                   <img
                     src={fitnessSteps}
                     alt="Fitness Steps"
-                    className="w-full object-cover rounded-2xl shadow-2xl"
+                    className="object-cover w-full shadow-2xl rounded-2xl"
                     style={{ height: "600px", maxHeight: "none" }}
                   />
 
                   {/* Decorative elements */}
-                  <div className="absolute -top-4 -left-4 w-8 h-8 bg-yellow-400 rounded-full opacity-80"></div>
-                  <div className="absolute -bottom-4 -right-4 w-6 h-6 bg-pink-400 rounded-full opacity-80"></div>
-                  <div className="absolute top-1/2 -right-6 w-4 h-4 bg-blue-400 rounded-full opacity-80"></div>
+                  <div className="absolute w-8 h-8 bg-yellow-400 rounded-full -top-4 -left-4 opacity-80"></div>
+                  <div className="absolute w-6 h-6 bg-pink-400 rounded-full -bottom-4 -right-4 opacity-80"></div>
+                  <div className="absolute w-4 h-4 bg-blue-400 rounded-full top-1/2 -right-6 opacity-80"></div>
                 </div>
               </div>
             </div>
@@ -499,8 +517,8 @@ const FitnessPrograms = () => {
 
       {/* Features Section */}
       <section className="w-full text-justify py-12 sm:py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300 bg-gradient-to-br from-[#26A0A2] to-[#20c997]">
-        <div className="max-w-7xl mx-auto w-full overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+        <div className="w-full mx-auto overflow-hidden max-w-7xl">
+          <div className="grid items-stretch grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
             {/* Left Side - Content */}
             <div
               className="flex flex-col space-y-8"
@@ -508,53 +526,44 @@ const FitnessPrograms = () => {
               data-aos-once="false"
             >
               <div>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-white">
-                  <span className="text-white">Features</span> Included
+                <h2 className="mb-6 text-3xl font-bold text-white sm:text-4xl md:text-5xl">
+                  {t("fitness.features.title")}
                 </h2>
-                <p className="text-lg sm:text-xl mb-8 text-white">
-                  Everything you need for a complete fitness experience
+                <p className="mb-8 text-lg text-white sm:text-xl">
+                  {t("fitness.features.subtitle")}
                 </p>
               </div>
 
               <div className="space-y-6">
                 <p className="text-base leading-relaxed text-white">
-                  Our comprehensive fitness platform provides you with all the
-                  tools and resources needed to achieve your strength,
-                  endurance, and health goals. From personalized training to
-                  expert guidance, we've got everything covered.
+                  {t("fitness.features.desc1")}
                 </p>
                 <p className="text-base leading-relaxed text-white">
-                  Whether you're a beginner or an experienced athlete, our
-                  features are designed to support your fitness journey at every
-                  step, making exercise accessible and effective for everyone.
+                  {t("fitness.features.desc2")}
                 </p>
                 <p className="text-base leading-relaxed text-white">
-                  Our platform integrates cutting-edge fitness technology with
-                  proven training methodologies, ensuring you have access to the
-                  best workout strategies. With real-time progress tracking and
-                  adaptive recommendations, your fitness journey becomes more
-                  effective and engaging.
+                  {t("fitness.features.desc3")}
                 </p>
                 <p className="text-base leading-relaxed text-white">
-                  Join thousands of users who have transformed their bodies and
-                  lives through our comprehensive fitness approach. Experience
-                  the difference that personalized training, expert guidance,
-                  and community support can make in your health and fitness
-                  journey.
+                  {t("fitness.features.desc4")}
                 </p>
               </div>
             </div>
 
             {/* Right Side - Cards */}
             <div
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
+              className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6"
               data-aos="fade-left"
               data-aos-once="false"
             >
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className={`p-6 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 ${isDarkMode ? "bg-gray-800 bg-opacity-95 backdrop-blur-sm" : "bg-white bg-opacity-95 backdrop-blur-sm"}`}
+                  className={`p-6 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 ${
+                    isDarkMode
+                      ? "bg-gray-800 bg-opacity-95 backdrop-blur-sm"
+                      : "bg-white bg-opacity-95 backdrop-blur-sm"
+                  }`}
                   data-aos="fade-up"
                   data-aos-delay={index * 100}
                   data-aos-once="false"
@@ -574,16 +583,19 @@ const FitnessPrograms = () => {
                       </svg>
                     </div>
                     <h3
-                      className={`text-lg font-bold ${isDarkMode ? "text-white" : "text-gray-800"}`}
+                      className={`text-lg font-bold ${
+                        isDarkMode ? "text-white" : "text-gray-800"
+                      }`}
                     >
                       {feature}
                     </h3>
                   </div>
                   <p
-                    className={`text-sm ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+                    className={`text-sm ${
+                      isDarkMode ? "text-gray-300" : "text-gray-600"
+                    }`}
                   >
-                    Access to {feature.toLowerCase()} for enhanced fitness
-                    experience and comprehensive support.
+                    {t("fitness.features.cardDesc", { feature })}
                   </p>
                 </div>
               ))}
@@ -594,40 +606,52 @@ const FitnessPrograms = () => {
 
       {/* Final CTA Section */}
       <section
-        className={`w-full py-12 sm:py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDarkMode ? "bg-black" : "bg-white"}`}
+        className={`w-full py-12 sm:py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
+          isDarkMode ? "bg-black" : "bg-white"
+        }`}
       >
-        <div className="max-w-6xl mx-auto text-center w-full overflow-hidden">
+        <div className="w-full max-w-6xl mx-auto overflow-hidden text-center">
           <div
-            className={`rounded-3xl p-8 sm:p-12 ${isDarkMode ? "bg-black" : "bg-white"}`}
+            className={`rounded-3xl p-8 sm:p-12 ${
+              isDarkMode ? "bg-black" : "bg-white"
+            }`}
             data-aos="fade-up"
           >
             <h2
-              className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-black"}`}
+              className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${
+                isDarkMode ? "text-white" : "text-black"
+              }`}
               data-aos="fade-down"
               data-aos-delay="50"
               data-aos-once="false"
             >
-              Start Your Fitness Journey Today
+              {t("fitness.pricing.title")}
             </h2>
             <p
-              className={`text-lg sm:text-xl mb-12 max-w-2xl mx-auto ${isDarkMode ? "text-white" : "text-black"}`}
+              className={`text-lg sm:text-xl mb-12 max-w-2xl mx-auto ${
+                isDarkMode ? "text-white" : "text-black"
+              }`}
               data-aos="fade-up"
               data-aos-delay="100"
               data-aos-once="false"
             >
-              Get access to personalized fitness programs and training tools to
-              improve your strength, endurance, and overall health.
+              {t("fitness.pricing.subtitle")}
             </p>
 
             {/* Pricing Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="grid grid-cols-1 gap-8 mb-12 md:grid-cols-3">
               {/* Basic Plan */}
               <div className="bg-gray-50 rounded-2xl p-6 border-2 border-gray-200 hover:border-[#26A0A2] transition-all duration-300">
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">Basic</h3>
+                <h3 className="mb-2 text-2xl font-bold text-gray-800">
+                  {t("fitness.pricing.basic")}
+                </h3>
                 <div className="text-4xl font-bold text-[#26A0A2] mb-4">
-                  $29<span className="text-lg text-gray-600">/month</span>
+                  {t("fitness.pricing.basicPrice")}
+                  <span className="text-lg text-gray-600">
+                    /{t("fitness.pricing.month")}
+                  </span>
                 </div>
-                <ul className="text-left space-y-3 mb-6">
+                <ul className="mb-6 space-y-3 text-left">
                   <li
                     className="flex items-center"
                     data-aos="fade-right"
@@ -645,7 +669,7 @@ const FitnessPrograms = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Basic workout programs
+                    {t("fitness.pricing.basicFeature1")}
                   </li>
                   <li
                     className="flex items-center"
@@ -664,7 +688,7 @@ const FitnessPrograms = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Exercise video library
+                    {t("fitness.pricing.basicFeature2")}
                   </li>
                   <li
                     className="flex items-center"
@@ -683,7 +707,7 @@ const FitnessPrograms = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Mobile app access
+                    {t("fitness.pricing.basicFeature3")}
                   </li>
                   <li
                     className="flex items-center"
@@ -702,16 +726,16 @@ const FitnessPrograms = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Weekly progress reports
+                    {t("fitness.pricing.basicFeature4")}
                   </li>
                 </ul>
                 <button
-                  className="w-full bg-gray-200 text-gray-800 font-semibold py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors duration-300 transform hover:scale-105"
+                  className="w-full px-6 py-3 font-semibold text-gray-800 transition-colors duration-300 transform bg-gray-200 rounded-lg hover:bg-gray-300 hover:scale-105"
                   data-aos="fade-up"
                   data-aos-delay="450"
                   data-aos-once="false"
                 >
-                  Choose Basic
+                  {t("fitness.pricing.basicBtn")}
                 </button>
               </div>
 
@@ -723,25 +747,28 @@ const FitnessPrograms = () => {
                   data-aos-delay="250"
                   data-aos-once="false"
                 >
-                  MOST POPULAR
+                  {t("fitness.pricing.mostPopular")}
                 </div>
                 <h3
-                  className="text-2xl font-bold text-white mb-2"
+                  className="mb-2 text-2xl font-bold text-white"
                   data-aos="fade-down"
                   data-aos-delay="250"
                   data-aos-once="false"
                 >
-                  Premium
+                  {t("fitness.pricing.premium")}
                 </h3>
                 <div
-                  className="text-4xl font-bold text-white mb-4"
+                  className="mb-4 text-4xl font-bold text-white"
                   data-aos="zoom-in"
                   data-aos-delay="300"
                   data-aos-once="false"
                 >
-                  $59<span className="text-lg text-gray-100">/month</span>
+                  {t("fitness.pricing.premiumPrice")}
+                  <span className="text-lg text-gray-100">
+                    /{t("fitness.pricing.month")}
+                  </span>
                 </div>
-                <ul className="text-left space-y-3 mb-6 text-white">
+                <ul className="mb-6 space-y-3 text-left text-white">
                   <li
                     className="flex items-center"
                     data-aos="fade-right"
@@ -749,7 +776,7 @@ const FitnessPrograms = () => {
                     data-aos-once="false"
                   >
                     <svg
-                      className="w-5 h-5 text-white mr-3"
+                      className="w-5 h-5 mr-3 text-white"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -759,7 +786,7 @@ const FitnessPrograms = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Everything in Basic
+                    {t("fitness.pricing.premiumFeature1")}
                   </li>
                   <li
                     className="flex items-center"
@@ -768,7 +795,7 @@ const FitnessPrograms = () => {
                     data-aos-once="false"
                   >
                     <svg
-                      className="w-5 h-5 text-white mr-3"
+                      className="w-5 h-5 mr-3 text-white"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -778,7 +805,7 @@ const FitnessPrograms = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Live fitness classes
+                    {t("fitness.pricing.premiumFeature2")}
                   </li>
                   <li
                     className="flex items-center"
@@ -787,7 +814,7 @@ const FitnessPrograms = () => {
                     data-aos-once="false"
                   >
                     <svg
-                      className="w-5 h-5 text-white mr-3"
+                      className="w-5 h-5 mr-3 text-white"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -797,7 +824,7 @@ const FitnessPrograms = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Personalized training plans
+                    {t("fitness.pricing.premiumFeature3")}
                   </li>
                   <li
                     className="flex items-center"
@@ -806,7 +833,7 @@ const FitnessPrograms = () => {
                     data-aos-once="false"
                   >
                     <svg
-                      className="w-5 h-5 text-white mr-3"
+                      className="w-5 h-5 mr-3 text-white"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -816,7 +843,7 @@ const FitnessPrograms = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Expert consultation
+                    {t("fitness.pricing.premiumFeature4")}
                   </li>
                   <li
                     className="flex items-center"
@@ -825,7 +852,7 @@ const FitnessPrograms = () => {
                     data-aos-once="false"
                   >
                     <svg
-                      className="w-5 h-5 text-white mr-3"
+                      className="w-5 h-5 mr-3 text-white"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -835,7 +862,7 @@ const FitnessPrograms = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Priority support
+                    {t("fitness.pricing.premiumFeature5")}
                   </li>
                 </ul>
                 <button
@@ -844,19 +871,19 @@ const FitnessPrograms = () => {
                   data-aos-delay="600"
                   data-aos-once="false"
                 >
-                  Choose Premium
+                  {t("fitness.pricing.premiumBtn")}
                 </button>
               </div>
 
               {/* Pro Plan */}
               <div className="bg-gray-50 rounded-2xl p-6 border-2 border-gray-200 hover:border-[#26A0A2] transition-all duration-300">
                 <h3
-                  className="text-2xl font-bold text-gray-800 mb-2"
+                  className="mb-2 text-2xl font-bold text-gray-800"
                   data-aos="fade-down"
                   data-aos-delay="350"
                   data-aos-once="false"
                 >
-                  Pro
+                  {t("fitness.pricing.pro")}
                 </h3>
                 <div
                   className="text-4xl font-bold text-[#26A0A2] mb-4"
@@ -864,9 +891,12 @@ const FitnessPrograms = () => {
                   data-aos-delay="400"
                   data-aos-once="false"
                 >
-                  $99<span className="text-lg text-gray-600">/month</span>
+                  {t("fitness.pricing.proPrice")}
+                  <span className="text-lg text-gray-600">
+                    /{t("fitness.pricing.month")}
+                  </span>
                 </div>
-                <ul className="text-left space-y-3 mb-6">
+                <ul className="mb-6 space-y-3 text-left">
                   <li
                     className="flex items-center"
                     data-aos="fade-right"
@@ -884,7 +914,7 @@ const FitnessPrograms = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Everything in Premium
+                    {t("fitness.pricing.proFeature1")}
                   </li>
                   <li
                     className="flex items-center"
@@ -903,7 +933,7 @@ const FitnessPrograms = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    1-on-1 training sessions
+                    {t("fitness.pricing.proFeature2")}
                   </li>
                   <li
                     className="flex items-center"
@@ -922,7 +952,7 @@ const FitnessPrograms = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Custom nutrition plans
+                    {t("fitness.pricing.proFeature3")}
                   </li>
                   <li
                     className="flex items-center"
@@ -941,7 +971,7 @@ const FitnessPrograms = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Weekend bootcamps access
+                    {t("fitness.pricing.proFeature4")}
                   </li>
                   <li
                     className="flex items-center"
@@ -960,22 +990,23 @@ const FitnessPrograms = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    VIP community access
+                    {t("fitness.pricing.proFeature5")}
                   </li>
                 </ul>
                 <button
-                  className="w-full bg-gray-200 text-gray-800 font-semibold py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors duration-300 transform hover:scale-105"
+                  className="w-full px-6 py-3 font-semibold text-gray-800 transition-colors duration-300 transform bg-gray-200 rounded-lg hover:bg-gray-300 hover:scale-105"
                   data-aos="fade-up"
                   data-aos-delay="700"
                   data-aos-once="false"
                 >
-                  Choose Pro
+                  {t("fitness.pricing.proBtn")}
                 </button>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };
