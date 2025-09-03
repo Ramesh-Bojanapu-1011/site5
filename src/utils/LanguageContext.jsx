@@ -4,6 +4,117 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 const translations = {
   en: {
     // Example for English (en)
+    "sleep.hero.title": "Discover Sleep Therapy",
+
+    "sleep.hero.subtitle":
+      "Transform your sleep quality with personalized therapy and proven techniques for deep, restorative rest.",
+    "sleep.hero.button": "Start Your Journey",
+    "sleep.benefits.title": "Key Benefits of Sleep Therapy",
+    "sleep.benefits.subtitle":
+      "Experience the transformative effects of improved sleep with our tailored therapy programs.",
+    "sleep.benefits.qualityTitle": "Improved Sleep Quality",
+    "sleep.benefits.qualityDesc":
+      "Our sleep therapy programs are designed to enhance the quality of your sleep, helping you achieve deeper and more restorative rest.",
+    "sleep.benefits.insomniaTitle": "Insomnia Relief",
+    "sleep.benefits.insomniaDesc":
+      "Our targeted approaches aim to alleviate insomnia symptoms, promoting restful sleep and improved well-being.",
+    "sleep.benefits.clarityTitle": "Enhanced Mental Clarity",
+    "sleep.benefits.clarityDesc":
+      "Better sleep leads to improved focus and cognitive function, helping you stay sharp and alert throughout the day.",
+    "sleep.benefits.recoveryTitle": "Faster Recovery",
+    "sleep.benefits.recoveryDesc":
+      "Adequate sleep is crucial for physical recovery, helping you bounce back faster from workouts and daily stressors.",
+    "sleep.benefits.transformTitle": "Transformative Sleep Experience",
+    "sleep.benefits.transformDesc":
+      "Our holistic approach to sleep therapy addresses the root causes of sleep issues, leading to lasting improvements in your sleep quality.",
+    "sleep.programs.title": "Our Sleep Therapy Programs",
+    "sleep.programs.assessmentTitle": "Sleep Assessment",
+    "sleep.programs.assessmentDesc":
+      "A comprehensive evaluation of your sleep patterns and issues to tailor the therapy to your needs.",
+    "sleep.programs.insomniaTitle": "Insomnia Management",
+    "sleep.programs.insomniaDesc":
+      "Targeted strategies to address insomnia and promote restful sleep.",
+    "sleep.programs.hygieneTitle": "Sleep Hygiene",
+    "sleep.programs.hygieneDesc":
+      "Guidance on creating a sleep-friendly environment and establishing healthy sleep habits.",
+    "sleep.programs.relaxationTitle": "Relaxation Techniques",
+    "sleep.programs.relaxationDesc":
+      "Methods to promote relaxation and reduce stress, aiding in better sleep quality.",
+    "sleep.programs.cbtTitle": "Cognitive Behavioral Therapy for Insomnia",
+    "sleep.programs.cbtDesc":
+      "A structured program to identify and change thoughts and behaviors that contribute to insomnia.",
+    "sleep.programs.environmentTitle": "Sleep Environment Optimization",
+    "sleep.programs.environmentDesc":
+      "Strategies to create a sleep-conducive environment, including lighting, noise control, and comfort.",
+    "sleep.howItWorks.title": "How Sleep Therapy Works",
+    "sleep.howItWorks.subtitle":
+      "Our sleep therapy programs utilize evidence-based techniques to improve sleep quality and address underlying issues.",
+    "sleep.howItWorks.stepLabel": "Steps {number}",
+    "sleep.howItWorks.step1":
+      "Initial Consultation: Understanding Your Sleep Issues",
+    "sleep.howItWorks.step2":
+      "Personalized Sleep Assessment and Plan Development",
+    "sleep.howItWorks.step3": "Implementation of Tailored Sleep Strategies",
+    "sleep.howItWorks.step4": "Ongoing Support and Progress Monitoring",
+    "sleep.howItWorks.step5": "Continuous Improvement and Adjustment",
+    "sleep.howItWorks.cta": "Get Started with Sleep Therapy Today!",
+    "sleep.features.title": "Key Features of Our Sleep Therapy",
+    "sleep.features.subtitle":
+      "Comprehensive tools and resources to support your sleep improvement journey.",
+    "sleep.features.desc1":
+      "Our comprehensive sleep therapy platform provides you with all the tools and resources needed to achieve quality sleep and overcome sleep disorders. From personalized therapy to expert guidance, we've got everything covered.",
+    "sleep.features.desc2":
+      "Whether you're struggling with insomnia, poor sleep quality, or simply want to optimize your sleep, our features are designed to support your sleep journey at every step, making restful sleep accessible and achievable for everyone.",
+    "sleep.features.desc3":
+      "Our platform integrates evidence-based sleep science with modern therapeutic approaches, ensuring you have access to the best sleep improvement strategies. With real-time sleep tracking and adaptive recommendations, your sleep therapy journey becomes more effective and sustainable.",
+    "sleep.features.desc4":
+      "Join thousands of users who have transformed their sleep quality through our comprehensive approach. Experience the difference that personalized sleep therapy, expert guidance, and ongoing support can make in your rest and recovery.",
+    "sleep.features.personalized": "Personalized sleep therapy plans",
+    "sleep.features.cardDesc":
+      "Unlock your best sleep with our tailored therapy programs designed for your unique needs.",
+    "sleep.features.tracking": "Sleep tracking and monitoring tools",
+    "sleep.features.library":
+      "Extensive library of sleep resources, including articles, videos, and guided exercises.",
+    "sleep.features.support":
+      "Ongoing support from sleep experts and a community of fellow users.",
+    "sleep.cta.title": "Take the First Step Towards Better Sleep",
+    "sleep.cta.desc":
+      "Join our sleep therapy program today and start your journey towards restful sleep and improved well-being.",
+    "sleep.pricing.basic": "Basic Plan",
+    "sleep.pricing.basicPrice": "$19.99",
+    "sleep.pricing.basicFeature1":
+      "Access to all standard sleep resources and tools",
+    "sleep.pricing.basicFeature2":
+      "Personalized sleep assessments and recommendations",
+    "sleep.pricing.basicFeature3": "Community support and engagement",
+    "sleep.pricing.basicFeature4":
+      "Access to exclusive sleep workshops and webinars.",
+    "sleep.pricing.basicBtn": "Choose Basic Plan",
+    "sleep.pricing.month": "Monthly Plan",
+    "sleep.pricing.mostPopular": "Most Popular Plan",
+    "sleep.pricing.premium": "Premium Plan",
+    "sleep.pricing.premiumPrice": "$29.99",
+    "sleep.pricing.premiumFeature1":
+      "Access to all premium sleep resources and tools",
+    "sleep.pricing.premiumFeature2":
+      "Personalized sleep assessments and recommendations",
+    "sleep.pricing.premiumFeature3": "Community support and engagement",
+    "sleep.pricing.premiumFeature4":
+      "Access to exclusive sleep workshops and webinars.",
+    "sleep.pricing.premiumBtn": "Choose Premium Plan",
+    "sleep.pricing.premiumFeature5":
+      "Ongoing support from sleep experts and a community of fellow users.",
+    "sleep.pricing.pro": "Pro Plan",
+    "sleep.pricing.proPrice": "$49.99",
+    "sleep.pricing.proFeature1": "Access to all pro sleep resources and tools",
+    "sleep.pricing.proFeature2":
+      "Personalized sleep assessments and recommendations",
+    "sleep.pricing.proFeature3": "Community support and engagement",
+    "sleep.pricing.proFeature4":
+      "Access to exclusive sleep workshops and webinars.",
+    "sleep.pricing.proFeature5":
+      "Ongoing support from sleep experts and a community of fellow users.",
+    "sleep.pricing.proBtn": "Choose Pro Plan",
     "fitness.pricing.mostPopular": "Most Popular Plan",
     "fitness.pricing.premium": "Premium Plan",
     "fitness.pricing.premiumPrice": "$29.99",
@@ -782,6 +893,109 @@ const translations = {
     cta_img_alt: "Wellness Journey",
   },
   ar: {
+    "sleep.hero.title": "اكتشف علاج النوم",
+    "sleep.hero.subtitle":
+      "حوّل جودة نومك من خلال علاج مخصص وتقنيات مثبتة لراحة عميقة ومجددة.",
+    "sleep.hero.button": "ابدأ رحلتك",
+    "sleep.benefits.title": "الفوائد الرئيسية لعلاج النوم",
+    "sleep.benefits.subtitle":
+      "اختبر التأثير التحويلي للنوم المحسن من خلال برامج العلاج المصممة خصيصًا لك.",
+    "sleep.benefits.qualityTitle": "تحسين جودة النوم",
+    "sleep.benefits.qualityDesc":
+      "تم تصميم برامج علاج النوم لدينا لتعزيز جودة نومك، مما يساعدك على تحقيق راحة أعمق وأكثر استعادة.",
+    "sleep.benefits.insomniaTitle": "تخفيف الأرق",
+    "sleep.benefits.insomniaDesc":
+      "تهدف أساليبنا المستهدفة إلى تخفيف أعراض الأرق، وتعزيز نوم هادئ وصحة أفضل.",
+    "sleep.benefits.clarityTitle": "وضوح عقلي محسن",
+    "sleep.benefits.clarityDesc":
+      "النوم الأفضل يؤدي إلى تحسين التركيز والوظائف الإدراكية، مما يساعدك على البقاء متيقظًا وحادًا طوال اليوم.",
+    "sleep.benefits.recoveryTitle": "تعافي أسرع",
+    "sleep.benefits.recoveryDesc":
+      "النوم الكافي ضروري للتعافي البدني، مما يساعدك على العودة بسرعة من التمارين وضغوط الحياة اليومية.",
+    "sleep.benefits.transformTitle": "تجربة نوم تحولية",
+    "sleep.benefits.transformDesc":
+      "نهجنا الشامل لعلاج النوم يعالج الأسباب الجذرية لمشاكل النوم، مما يؤدي إلى تحسينات دائمة في جودة نومك.",
+    "sleep.programs.title": "برامج علاج النوم لدينا",
+    "sleep.programs.assessmentTitle": "تقييم النوم",
+    "sleep.programs.assessmentDesc":
+      "تقييم شامل لأنماط نومك ومشاكلك لتخصيص العلاج وفقًا لاحتياجاتك.",
+    "sleep.programs.insomniaTitle": "إدارة الأرق",
+    "sleep.programs.insomniaDesc":
+      "استراتيجيات موجهة للتعامل مع الأرق وتعزيز النوم المريح.",
+    "sleep.programs.hygieneTitle": "نظافة النوم",
+    "sleep.programs.hygieneDesc":
+      "إرشادات لإنشاء بيئة صديقة للنوم وتأسيس عادات نوم صحية.",
+    "sleep.programs.relaxationTitle": "تقنيات الاسترخاء",
+    "sleep.programs.relaxationDesc":
+      "أساليب لتعزيز الاسترخاء وتقليل التوتر، مما يساعد على تحسين جودة النوم.",
+    "sleep.programs.cbtTitle": "العلاج السلوكي المعرفي للأرق",
+    "sleep.programs.cbtDesc":
+      "برنامج منظم لتحديد وتغيير الأفكار والسلوكيات التي تساهم في الأرق.",
+    "sleep.programs.environmentTitle": "تحسين بيئة النوم",
+    "sleep.programs.environmentDesc":
+      "استراتيجيات لإنشاء بيئة مواتية للنوم، بما في ذلك الإضاءة والتحكم في الضوضاء والراحة.",
+    "sleep.howItWorks.title": "كيف يعمل علاج النوم",
+    "sleep.howItWorks.subtitle":
+      "تستخدم برامج علاج النوم لدينا تقنيات مثبتة لتحسين جودة النوم ومعالجة المشكلات الأساسية.",
+    "sleep.howItWorks.stepLabel": "الخطوة {number}",
+    "sleep.howItWorks.step1": "الاستشارة الأولية: فهم مشكلات نومك",
+    "sleep.howItWorks.step2": "تقييم النوم المخصص وتطوير خطة العلاج",
+    "sleep.howItWorks.step3": "تنفيذ استراتيجيات النوم المخصصة",
+    "sleep.howItWorks.step4": "الدعم المستمر ومتابعة التقدم",
+    "sleep.howItWorks.step5": "التحسين المستمر والتعديل",
+    "sleep.howItWorks.cta": "ابدأ علاج النوم اليوم!",
+    "sleep.features.title": "الميزات الرئيسية لعلاج النوم لدينا",
+    "sleep.features.subtitle": "أدوات وموارد شاملة لدعم رحلتك نحو تحسين النوم.",
+    "sleep.features.desc1":
+      "يوفر لك نظامنا العلاجي الشامل للنوم جميع الأدوات والموارد اللازمة لتحقيق نوم جيد والتغلب على اضطرابات النوم. من العلاج الشخصي إلى التوجيه من الخبراء، كل شيء مغطى.",
+    "sleep.features.desc2":
+      "سواء كنت تعاني من الأرق أو سوء جودة النوم أو ترغب ببساطة في تحسين نومك، فإن ميزاتنا مصممة لدعمك في كل خطوة، مما يجعل النوم المريح متاحًا للجميع.",
+    "sleep.features.desc3":
+      "منصتنا تدمج بين علم النوم المبني على الأدلة والمقاربات العلاجية الحديثة، مما يضمن لك أفضل استراتيجيات تحسين النوم. مع تتبع النوم في الوقت الفعلي والتوصيات التكيفية، تصبح رحلتك العلاجية أكثر فعالية واستدامة.",
+    "sleep.features.desc4":
+      "انضم إلى آلاف المستخدمين الذين حسّنوا جودة نومهم من خلال نهجنا الشامل. اختبر الفرق الذي يمكن أن يقدمه العلاج الشخصي للنوم والدعم المستمر في راحتك وتعافيك.",
+    "sleep.features.personalized": "خطط علاج نوم شخصية",
+    "sleep.features.cardDesc":
+      "اكتشف أفضل نوم لك من خلال برامج العلاج المصممة لاحتياجاتك الفريدة.",
+    "sleep.features.tracking": "أدوات تتبع ومراقبة النوم",
+    "sleep.features.library":
+      "مكتبة واسعة من موارد النوم، بما في ذلك المقالات والفيديوهات والتمارين الموجهة.",
+    "sleep.features.support":
+      "دعم مستمر من خبراء النوم ومجتمع من المستخدمين الآخرين.",
+    "sleep.cta.title": "اتخذ الخطوة الأولى نحو نوم أفضل",
+    "sleep.cta.desc":
+      "انضم إلى برنامج علاج النوم لدينا اليوم وابدأ رحلتك نحو نوم مريح وصحة أفضل.",
+    "sleep.pricing.basic": "الخطة الأساسية",
+    "sleep.pricing.basicPrice": "19.99$",
+    "sleep.pricing.basicFeature1":
+      "الوصول إلى جميع موارد وأدوات النوم القياسية",
+    "sleep.pricing.basicFeature2": "تقييمات وتوصيات نوم شخصية",
+    "sleep.pricing.basicFeature3": "دعم ومشاركة المجتمع",
+    "sleep.pricing.basicFeature4": "الوصول إلى ورش عمل وندوات حصرية عن النوم.",
+    "sleep.pricing.basicBtn": "اختر الخطة الأساسية",
+    "sleep.pricing.month": "خطة شهرية",
+    "sleep.pricing.mostPopular": "الخطة الأكثر شيوعًا",
+    "sleep.pricing.premium": "الخطة المميزة",
+    "sleep.pricing.premiumPrice": "29.99$",
+    "sleep.pricing.premiumFeature1":
+      "الوصول إلى جميع موارد وأدوات النوم المميزة",
+    "sleep.pricing.premiumFeature2": "تقييمات وتوصيات نوم شخصية",
+    "sleep.pricing.premiumFeature3": "دعم ومشاركة المجتمع",
+    "sleep.pricing.premiumFeature4":
+      "الوصول إلى ورش عمل وندوات حصرية عن النوم.",
+    "sleep.pricing.premiumBtn": "اختر الخطة المميزة",
+    "sleep.pricing.premiumFeature5":
+      "دعم مستمر من خبراء النوم ومجتمع من المستخدمين الآخرين.",
+    "sleep.pricing.pro": "الخطة الاحترافية",
+    "sleep.pricing.proPrice": "49.99$",
+    "sleep.pricing.proFeature1":
+      "الوصول إلى جميع موارد وأدوات النوم الاحترافية",
+    "sleep.pricing.proFeature2": "تقييمات وتوصيات نوم شخصية",
+    "sleep.pricing.proFeature3": "دعم ومشاركة المجتمع",
+    "sleep.pricing.proFeature4": "الوصول إلى ورش عمل وندوات حصرية عن النوم.",
+    "sleep.pricing.proFeature5":
+      "دعم مستمر من خبراء النوم ومجتمع من المستخدمين الآخرين.",
+    "sleep.pricing.proBtn": "اختر الخطة الاحترافية",
     "fitness.pricing.mostPopular": "الخطة الأكثر شيوعًا",
     "fitness.pricing.premium": "الخطة المميزة",
     "fitness.pricing.premiumPrice": "$29.99",
@@ -1518,6 +1732,109 @@ const translations = {
     cta_img_alt: "رحلة العافية",
   },
   he: {
+    "sleep.hero.title": "اكتشف علاج النوم",
+    "sleep.hero.subtitle":
+      "حوّل جودة نومك من خلال علاج مخصص وتقنيات مثبتة لراحة عميقة ومجددة.",
+    "sleep.hero.button": "ابدأ رحلتك",
+    "sleep.benefits.title": "الفوائد الرئيسية لعلاج النوم",
+    "sleep.benefits.subtitle":
+      "اختبر التأثير التحويلي للنوم المحسن من خلال برامج العلاج المصممة خصيصًا لك.",
+    "sleep.benefits.qualityTitle": "تحسين جودة النوم",
+    "sleep.benefits.qualityDesc":
+      "تم تصميم برامج علاج النوم لدينا لتعزيز جودة نومك، مما يساعدك على تحقيق راحة أعمق وأكثر استعادة.",
+    "sleep.benefits.insomniaTitle": "تخفيف الأرق",
+    "sleep.benefits.insomniaDesc":
+      "تهدف أساليبنا المستهدفة إلى تخفيف أعراض الأرق، وتعزيز نوم هادئ وصحة أفضل.",
+    "sleep.benefits.clarityTitle": "وضوح عقلي محسن",
+    "sleep.benefits.clarityDesc":
+      "النوم الأفضل يؤدي إلى تحسين التركيز والوظائف الإدراكية، مما يساعدك على البقاء متيقظًا وحادًا طوال اليوم.",
+    "sleep.benefits.recoveryTitle": "تعافي أسرع",
+    "sleep.benefits.recoveryDesc":
+      "النوم الكافي ضروري للتعافي البدني، مما يساعدك على العودة بسرعة من التمارين وضغوط الحياة اليومية.",
+    "sleep.benefits.transformTitle": "تجربة نوم تحولية",
+    "sleep.benefits.transformDesc":
+      "نهجنا الشامل لعلاج النوم يعالج الأسباب الجذرية لمشاكل النوم، مما يؤدي إلى تحسينات دائمة في جودة نومك.",
+    "sleep.programs.title": "برامج علاج النوم لدينا",
+    "sleep.programs.assessmentTitle": "تقييم النوم",
+    "sleep.programs.assessmentDesc":
+      "تقييم شامل لأنماط نومك ومشاكلك لتخصيص العلاج وفقًا لاحتياجاتك.",
+    "sleep.programs.insomniaTitle": "إدارة الأرق",
+    "sleep.programs.insomniaDesc":
+      "استراتيجيات موجهة للتعامل مع الأرق وتعزيز النوم المريح.",
+    "sleep.programs.hygieneTitle": "نظافة النوم",
+    "sleep.programs.hygieneDesc":
+      "إرشادات لإنشاء بيئة صديقة للنوم وتأسيس عادات نوم صحية.",
+    "sleep.programs.relaxationTitle": "تقنيات الاسترخاء",
+    "sleep.programs.relaxationDesc":
+      "أساليب لتعزيز الاسترخاء وتقليل التوتر، مما يساعد على تحسين جودة النوم.",
+    "sleep.programs.cbtTitle": "العلاج السلوكي المعرفي للأرق",
+    "sleep.programs.cbtDesc":
+      "برنامج منظم لتحديد وتغيير الأفكار والسلوكيات التي تساهم في الأرق.",
+    "sleep.programs.environmentTitle": "تحسين بيئة النوم",
+    "sleep.programs.environmentDesc":
+      "استراتيجيات لإنشاء بيئة مواتية للنوم، بما في ذلك الإضاءة والتحكم في الضوضاء والراحة.",
+    "sleep.howItWorks.title": "كيف يعمل علاج النوم",
+    "sleep.howItWorks.subtitle":
+      "تستخدم برامج علاج النوم لدينا تقنيات مثبتة لتحسين جودة النوم ومعالجة المشكلات الأساسية.",
+    "sleep.howItWorks.stepLabel": "الخطوة {number}",
+    "sleep.howItWorks.step1": "الاستشارة الأولية: فهم مشكلات نومك",
+    "sleep.howItWorks.step2": "تقييم النوم المخصص وتطوير خطة العلاج",
+    "sleep.howItWorks.step3": "تنفيذ استراتيجيات النوم المخصصة",
+    "sleep.howItWorks.step4": "الدعم المستمر ومتابعة التقدم",
+    "sleep.howItWorks.step5": "التحسين المستمر والتعديل",
+    "sleep.howItWorks.cta": "ابدأ علاج النوم اليوم!",
+    "sleep.features.title": "الميزات الرئيسية لعلاج النوم لدينا",
+    "sleep.features.subtitle": "أدوات وموارد شاملة لدعم رحلتك نحو تحسين النوم.",
+    "sleep.features.desc1":
+      "يوفر لك نظامنا العلاجي الشامل للنوم جميع الأدوات والموارد اللازمة لتحقيق نوم جيد والتغلب على اضطرابات النوم. من العلاج الشخصي إلى التوجيه من الخبراء، كل شيء مغطى.",
+    "sleep.features.desc2":
+      "سواء كنت تعاني من الأرق أو سوء جودة النوم أو ترغب ببساطة في تحسين نومك، فإن ميزاتنا مصممة لدعمك في كل خطوة، مما يجعل النوم المريح متاحًا للجميع.",
+    "sleep.features.desc3":
+      "منصتنا تدمج بين علم النوم المبني على الأدلة والمقاربات العلاجية الحديثة، مما يضمن لك أفضل استراتيجيات تحسين النوم. مع تتبع النوم في الوقت الفعلي والتوصيات التكيفية، تصبح رحلتك العلاجية أكثر فعالية واستدامة.",
+    "sleep.features.desc4":
+      "انضم إلى آلاف المستخدمين الذين حسّنوا جودة نومهم من خلال نهجنا الشامل. اختبر الفرق الذي يمكن أن يقدمه العلاج الشخصي للنوم والدعم المستمر في راحتك وتعافيك.",
+    "sleep.features.personalized": "خطط علاج نوم شخصية",
+    "sleep.features.cardDesc":
+      "اكتشف أفضل نوم لك من خلال برامج العلاج المصممة لاحتياجاتك الفريدة.",
+    "sleep.features.tracking": "أدوات تتبع ومراقبة النوم",
+    "sleep.features.library":
+      "مكتبة واسعة من موارد النوم، بما في ذلك المقالات والفيديوهات والتمارين الموجهة.",
+    "sleep.features.support":
+      "دعم مستمر من خبراء النوم ومجتمع من المستخدمين الآخرين.",
+    "sleep.cta.title": "اتخذ الخطوة الأولى نحو نوم أفضل",
+    "sleep.cta.desc":
+      "انضم إلى برنامج علاج النوم لدينا اليوم وابدأ رحلتك نحو نوم مريح وصحة أفضل.",
+    "sleep.pricing.basic": "الخطة الأساسية",
+    "sleep.pricing.basicPrice": "19.99$",
+    "sleep.pricing.basicFeature1":
+      "الوصول إلى جميع موارد وأدوات النوم القياسية",
+    "sleep.pricing.basicFeature2": "تقييمات وتوصيات نوم شخصية",
+    "sleep.pricing.basicFeature3": "دعم ومشاركة المجتمع",
+    "sleep.pricing.basicFeature4": "الوصول إلى ورش عمل وندوات حصرية عن النوم.",
+    "sleep.pricing.basicBtn": "اختر الخطة الأساسية",
+    "sleep.pricing.month": "خطة شهرية",
+    "sleep.pricing.mostPopular": "الخطة الأكثر شيوعًا",
+    "sleep.pricing.premium": "الخطة المميزة",
+    "sleep.pricing.premiumPrice": "29.99$",
+    "sleep.pricing.premiumFeature1":
+      "الوصول إلى جميع موارد وأدوات النوم المميزة",
+    "sleep.pricing.premiumFeature2": "تقييمات وتوصيات نوم شخصية",
+    "sleep.pricing.premiumFeature3": "دعم ومشاركة المجتمع",
+    "sleep.pricing.premiumFeature4":
+      "الوصول إلى ورش عمل وندوات حصرية عن النوم.",
+    "sleep.pricing.premiumBtn": "اختر الخطة المميزة",
+    "sleep.pricing.premiumFeature5":
+      "دعم مستمر من خبراء النوم ومجتمع من المستخدمين الآخرين.",
+    "sleep.pricing.pro": "الخطة الاحترافية",
+    "sleep.pricing.proPrice": "49.99$",
+    "sleep.pricing.proFeature1":
+      "الوصول إلى جميع موارد وأدوات النوم الاحترافية",
+    "sleep.pricing.proFeature2": "تقييمات وتوصيات نوم شخصية",
+    "sleep.pricing.proFeature3": "دعم ومشاركة المجتمع",
+    "sleep.pricing.proFeature4": "الوصول إلى ورش عمل وندوات حصرية عن النوم.",
+    "sleep.pricing.proFeature5":
+      "دعم مستمر من خبراء النوم ومجتمع من المستخدمين الآخرين.",
+    "sleep.pricing.proBtn": "اختر الخطة الاحترافية",
     "fitness.pricing.mostPopular": "התוכנית הפופולרית ביותר",
     "fitness.pricing.premium": "תוכנית פרימיום",
     "fitness.pricing.premiumPrice": "$29.99",

@@ -6,6 +6,7 @@ import sleepHeroVideo from "../../assets/sleephero.mp4";
 import sleepBenefitsBg from "../../assets/sleepbenefits.jpg";
 import sleepSteps from "../../assets/sleepsteps.jpg";
 import sleepserve from "../../assets/sleepserves.jpg";
+import { useLanguage } from "../../utils/LanguageContext";
 
 const SleepTherapy = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -23,56 +24,48 @@ const SleepTherapy = () => {
     });
   }, []);
 
-  const benefits = [
-    "Improves sleep quality and duration",
-    "Reduces insomnia and sleep disorders",
-    "Enhances daytime energy and focus",
-    "Promotes deep, restorative sleep",
-    "Supports mental and physical recovery",
-    "Boosts overall health and well-being",
-  ];
+  const { t } = useLanguage();
 
   const programs = [
     {
-      title: "Sleep Assessment & Analysis",
-      description: "Comprehensive evaluation of your sleep patterns and habits",
+      title: t("sleep.programs.assessmentTitle"),
+      description: t("sleep.programs.assessmentDesc"),
     },
     {
-      title: "Insomnia Treatment Programs",
-      description: "Evidence-based therapies to overcome sleep difficulties",
+      title: t("sleep.programs.insomniaTitle"),
+      description: t("sleep.programs.insomniaDesc"),
     },
     {
-      title: "Sleep Hygiene Education",
-      description: "Learn optimal sleep environment and routine practices",
+      title: t("sleep.programs.hygieneTitle"),
+      description: t("sleep.programs.hygieneDesc"),
     },
     {
-      title: "Relaxation & Meditation Techniques",
-      description: "Mindfulness practices to prepare mind and body for sleep",
+      title: t("sleep.programs.relaxationTitle"),
+      description: t("sleep.programs.relaxationDesc"),
     },
     {
-      title: "Cognitive Behavioral Therapy for Sleep",
-      description:
-        "CBT techniques to address sleep-related thoughts and behaviors",
+      title: t("sleep.programs.cbtTitle"),
+      description: t("sleep.programs.cbtDesc"),
     },
     {
-      title: "Sleep Environment Optimization",
-      description: "Create the perfect sleep sanctuary for better rest",
+      title: t("sleep.programs.environmentTitle"),
+      description: t("sleep.programs.environmentDesc"),
     },
   ];
 
   const howItWorks = [
-    "Complete a comprehensive sleep assessment",
-    "Receive personalized sleep therapy recommendations",
-    "Access guided relaxation and sleep techniques",
-    "Practice sleep hygiene with expert guidance",
-    "Track progress and adjust your sleep plan",
+    t("sleep.howItWorks.step1"),
+    t("sleep.howItWorks.step2"),
+    t("sleep.howItWorks.step3"),
+    t("sleep.howItWorks.step4"),
+    t("sleep.howItWorks.step5"),
   ];
 
   const features = [
-    "Personalized sleep therapy plans",
-    "Sleep tracking and monitoring tools",
-    "Guided relaxation audio library",
-    "Expert sleep consultation support",
+    t("sleep.features.personalized"),
+    t("sleep.features.tracking"),
+    t("sleep.features.library"),
+    t("sleep.features.support"),
   ];
 
   return (
@@ -82,13 +75,13 @@ const SleepTherapy = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="w-full h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-16 relative overflow-hidden max-w-full">
+      <section className="relative flex items-center justify-center w-full h-screen max-w-full px-4 overflow-hidden sm:px-6 md:px-8 lg:px-16">
         {/* Video Background */}
         <video
           autoPlay
           muted
           loop
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 object-cover w-full h-full"
         >
           <source src={sleepHeroVideo} type="video/mp4" />
           Your browser does not support the video tag.
@@ -97,27 +90,26 @@ const SleepTherapy = () => {
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
-        <div className="relative z-10 text-center max-w-4xl px-4 w-full">
+        <div className="relative z-10 w-full max-w-4xl px-4 text-center">
           <h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 sm:mb-8 leading-tight text-center"
+            className="mb-6 text-3xl font-bold leading-tight text-center text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl sm:mb-8"
             data-aos="fade-up"
           >
-            Discover <span className="text-teal-500">Sleep Therapy</span>
+            {t("sleep.hero.title")}
           </h1>
           <p
-            className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white mb-8 sm:mb-10 max-w-4xl mx-auto leading-relaxed"
+            className="max-w-4xl mx-auto mb-8 text-lg leading-relaxed text-white sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl sm:mb-10"
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            Transform your sleep quality with personalized therapy and proven
-            techniques for deep, restorative rest.
+            {t("sleep.hero.subtitle")}
           </p>
           <button
             className="bg-white text-[#26A0A2] font-semibold px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full shadow-lg hover:bg-gray-100 transition text-base sm:text-lg md:text-xl transform hover:scale-105"
             data-aos="fade-up"
             data-aos-delay="400"
           >
-            Start Your Journey
+            {t("sleep.hero.button")}
           </button>
         </div>
       </section>
@@ -129,9 +121,9 @@ const SleepTherapy = () => {
         data-aos-duration="1000"
         data-aos-once="false"
       >
-        <div className="max-w-7xl mx-auto w-full overflow-hidden">
+        <div className="w-full mx-auto overflow-hidden max-w-7xl">
           <div
-            className="text-center mb-16"
+            className="mb-16 text-center"
             data-aos="fade-up"
             data-aos-delay="200"
             data-aos-once="false"
@@ -139,17 +131,16 @@ const SleepTherapy = () => {
             <h2
               className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-800"}`}
             >
-              Key <span className="text-[#26A0A2]">Benefits</span>
+              {t("sleep.benefits.title")}
             </h2>
             <p
               className={`text-base sm:text-lg max-w-2xl mx-auto ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
             >
-              Transform your life with the proven benefits of quality sleep and
-              therapeutic sleep practices
+              {t("sleep.benefits.subtitle")}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-center">
+          <div className="grid items-center grid-cols-1 gap-6 lg:grid-cols-3 sm:gap-8">
             {/* Left Cards */}
             <div
               className="space-y-4 sm:space-y-6"
@@ -163,7 +154,7 @@ const SleepTherapy = () => {
                 data-aos-delay="400"
                 data-aos-once="false"
               >
-                <div className="flex items-center space-x-4 mb-4">
+                <div className="flex items-center mb-4 space-x-4">
                   <div className="w-12 h-12 bg-[#26A0A2] rounded-full flex items-center justify-center flex-shrink-0">
                     <svg
                       className="w-6 h-6 text-white"
@@ -180,15 +171,13 @@ const SleepTherapy = () => {
                   <h3
                     className={`text-xl font-bold ${isDarkMode ? "text-white" : "text-gray-800"}`}
                   >
-                    Better Sleep Quality
+                    {t("sleep.benefits.qualityTitle")}
                   </h3>
                 </div>
                 <p
                   className={`text-base ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
                 >
-                  Experience deeper, more restorative sleep through proven
-                  therapeutic techniques and sleep optimization strategies
-                  designed for lasting improvement.
+                  {t("sleep.benefits.qualityDesc")}
                 </p>
               </div>
 
@@ -198,7 +187,7 @@ const SleepTherapy = () => {
                 data-aos-delay="500"
                 data-aos-once="false"
               >
-                <div className="flex items-center space-x-4 mb-4">
+                <div className="flex items-center mb-4 space-x-4">
                   <div className="w-12 h-12 bg-[#26A0A2] rounded-full flex items-center justify-center flex-shrink-0">
                     <svg
                       className="w-6 h-6 text-white"
@@ -215,15 +204,13 @@ const SleepTherapy = () => {
                   <h3
                     className={`text-xl font-bold ${isDarkMode ? "text-white" : "text-gray-800"}`}
                   >
-                    Reduces Insomnia
+                    {t("sleep.benefits.insomniaTitle")}
                   </h3>
                 </div>
                 <p
                   className={`text-base ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
                 >
-                  Overcome sleep difficulties and insomnia through
-                  evidence-based therapeutic approaches that address the root
-                  causes of sleep problems.
+                  {t("sleep.benefits.insomniaDesc")}
                 </p>
               </div>
             </div>
@@ -235,24 +222,22 @@ const SleepTherapy = () => {
               data-aos-delay="600"
               data-aos-once="false"
             >
-              <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden shadow-2xl mb-4 sm:mb-6">
+              <div className="w-48 h-48 mb-4 overflow-hidden shadow-2xl sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl sm:mb-6">
                 <img
                   src={sleepBenefitsBg}
                   alt="Sleep Therapy Benefits"
-                  className="w-full h-full object-cover"
+                  className="object-cover w-full h-full"
                 />
               </div>
               <h3
                 className={`text-2xl sm:text-3xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-800"}`}
               >
-                Transform Your Sleep
+                {t("sleep.benefits.transformTitle")}
               </h3>
               <p
                 className={`text-lg max-w-md ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
               >
-                Experience the profound benefits of quality sleep that will
-                enhance your physical recovery, mental clarity, and overall
-                well-being.
+                {t("sleep.benefits.transformDesc")}
               </p>
             </div>
 
@@ -269,7 +254,7 @@ const SleepTherapy = () => {
                 data-aos-delay="400"
                 data-aos-once="false"
               >
-                <div className="flex items-center space-x-4 mb-4">
+                <div className="flex items-center mb-4 space-x-4">
                   <div className="w-12 h-12 bg-[#26A0A2] rounded-full flex items-center justify-center flex-shrink-0">
                     <svg
                       className="w-6 h-6 text-white"
@@ -286,15 +271,13 @@ const SleepTherapy = () => {
                   <h3
                     className={`text-xl font-bold ${isDarkMode ? "text-white" : "text-gray-800"}`}
                   >
-                    Enhanced Recovery
+                    {t("sleep.benefits.recoveryTitle")}
                   </h3>
                 </div>
                 <p
                   className={`text-base ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
                 >
-                  Support your body's natural healing and recovery processes
-                  through deep, restorative sleep that optimizes physical and
-                  mental restoration.
+                  {t("sleep.benefits.recoveryDesc")}
                 </p>
               </div>
 
@@ -304,7 +287,7 @@ const SleepTherapy = () => {
                 data-aos-delay="500"
                 data-aos-once="false"
               >
-                <div className="flex items-center space-x-4 mb-4">
+                <div className="flex items-center mb-4 space-x-4">
                   <div className="w-12 h-12 bg-[#26A0A2] rounded-full flex items-center justify-center flex-shrink-0">
                     <svg
                       className="w-6 h-6 text-white"
@@ -321,15 +304,13 @@ const SleepTherapy = () => {
                   <h3
                     className={`text-xl font-bold ${isDarkMode ? "text-white" : "text-gray-800"}`}
                   >
-                    Mental Clarity
+                    {t("sleep.benefits.clarityTitle")}
                   </h3>
                 </div>
                 <p
                   className={`text-base ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
                 >
-                  Improve cognitive function, focus, and mental clarity through
-                  quality sleep that enhances brain function and emotional
-                  well-being.
+                  {t("sleep.benefits.clarityDesc")}
                 </p>
               </div>
             </div>
@@ -346,21 +327,21 @@ const SleepTherapy = () => {
           <img
             src={sleepserve}
             alt="Sleep Therapy Programs Background"
-            className="w-full h-full object-cover"
+            className="object-cover w-full h-full"
           />
           <div className="absolute inset-0 bg-[#26A0A2] bg-opacity-70"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto relative z-10 w-full overflow-hidden">
+        <div className="relative z-10 w-full mx-auto overflow-hidden max-w-7xl">
           <div className="mb-12" data-aos="fade-up">
             <h2
               className={`text-3xl sm:text-4xl md:text-5xl font-bold text-white`}
             >
-              Programs we <span className="text-white">serve</span>
+              {t("sleep.programs.title")}
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 sm:gap-12">
             {programs.map((program, index) => (
               <div
                 key={index}
@@ -394,8 +375,8 @@ const SleepTherapy = () => {
       <section
         className={`w-full py-12 sm:py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDarkMode ? "bg-black" : "bg-white"}`}
       >
-        <div className="max-w-7xl mx-auto w-full overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+        <div className="w-full mx-auto overflow-hidden max-w-7xl">
+          <div className="grid items-stretch grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
             {/* Left Side - Content */}
             <div
               className="flex flex-col space-y-8"
@@ -406,13 +387,12 @@ const SleepTherapy = () => {
                 <h2
                   className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-gray-800"}`}
                 >
-                  How It <span className="text-[#26A0A2]">Works</span>
+                  {t("sleep.howItWorks.title")}
                 </h2>
                 <p
                   className={`text-base sm:text-lg ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
                 >
-                  Get started with your sleep therapy journey in just a few
-                  simple steps
+                  {t("sleep.howItWorks.subtitle")}
                 </p>
               </div>
 
@@ -435,7 +415,10 @@ const SleepTherapy = () => {
                       <h3
                         className={`text-lg font-bold mb-2 ${isDarkMode ? "text-white" : "text-gray-800"}`}
                       >
-                        Step {index + 1}
+                        {t("sleep.howItWorks.stepLabel").replace(
+                          "{number}",
+                          index + 1,
+                        )}
                       </h3>
                       <p
                         className={`text-base ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
@@ -450,14 +433,14 @@ const SleepTherapy = () => {
               {/* CTA Button */}
               <div className="pt-4">
                 <button className="bg-[#26A0A2] text-white font-semibold py-3 px-8 rounded-lg hover:bg-[#20c997] transition-colors duration-300 transform hover:scale-105">
-                  Start Your Journey
+                  {t("sleep.howItWorks.cta")}
                 </button>
               </div>
             </div>
 
             {/* Right Side - Image */}
             <div
-              className="flex justify-center lg:justify-end items-start"
+              className="flex items-start justify-center lg:justify-end"
               data-aos="fade-left"
               data-aos-once="false"
             >
@@ -466,14 +449,14 @@ const SleepTherapy = () => {
                   <img
                     src={sleepSteps}
                     alt="Sleep Therapy Steps"
-                    className="w-full object-cover rounded-2xl shadow-2xl"
+                    className="object-cover w-full shadow-2xl rounded-2xl"
                     style={{ height: "600px", maxHeight: "none" }}
                   />
 
                   {/* Decorative elements */}
-                  <div className="absolute -top-4 -left-4 w-8 h-8 bg-yellow-400 rounded-full opacity-80"></div>
-                  <div className="absolute -bottom-4 -right-4 w-6 h-6 bg-pink-400 rounded-full opacity-80"></div>
-                  <div className="absolute top-1/2 -right-6 w-4 h-4 bg-blue-400 rounded-full opacity-80"></div>
+                  <div className="absolute w-8 h-8 bg-yellow-400 rounded-full -top-4 -left-4 opacity-80"></div>
+                  <div className="absolute w-6 h-6 bg-pink-400 rounded-full -bottom-4 -right-4 opacity-80"></div>
+                  <div className="absolute w-4 h-4 bg-blue-400 rounded-full top-1/2 -right-6 opacity-80"></div>
                 </div>
               </div>
             </div>
@@ -483,8 +466,8 @@ const SleepTherapy = () => {
 
       {/* Features Section */}
       <section className="w-full text-justify py-12 sm:py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300 bg-gradient-to-br from-[#26A0A2] to-[#20c997]">
-        <div className="max-w-7xl mx-auto w-full overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+        <div className="w-full mx-auto overflow-hidden max-w-7xl">
+          <div className="grid items-stretch grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
             {/* Left Side - Content */}
             <div
               className="flex flex-col space-y-8"
@@ -492,46 +475,33 @@ const SleepTherapy = () => {
               data-aos-once="false"
             >
               <div>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-white">
-                  <span className="text-white">Features</span> Included
+                <h2 className="mb-6 text-3xl font-bold text-white sm:text-4xl md:text-5xl">
+                  {t("sleep.features.title")}
                 </h2>
-                <p className="text-lg sm:text-xl mb-8 text-white">
-                  Everything you need for a complete sleep therapy experience
+                <p className="mb-8 text-lg text-white sm:text-xl">
+                  {t("sleep.features.subtitle")}
                 </p>
               </div>
 
               <div className="space-y-6">
                 <p className="text-base leading-relaxed text-white">
-                  Our comprehensive sleep therapy platform provides you with all
-                  the tools and resources needed to achieve quality sleep and
-                  overcome sleep disorders. From personalized therapy to expert
-                  guidance, we've got everything covered.
+                  {t("sleep.features.desc1")}
                 </p>
                 <p className="text-base leading-relaxed text-white">
-                  Whether you're struggling with insomnia, poor sleep quality,
-                  or simply want to optimize your sleep, our features are
-                  designed to support your sleep journey at every step, making
-                  restful sleep accessible and achievable for everyone.
+                  {t("sleep.features.desc2")}
                 </p>
                 <p className="text-base leading-relaxed text-white">
-                  Our platform integrates evidence-based sleep science with
-                  modern therapeutic approaches, ensuring you have access to the
-                  best sleep improvement strategies. With real-time sleep
-                  tracking and adaptive recommendations, your sleep therapy
-                  journey becomes more effective and sustainable.
+                  {t("sleep.features.desc3")}
                 </p>
                 <p className="text-base leading-relaxed text-white">
-                  Join thousands of users who have transformed their sleep
-                  quality through our comprehensive approach. Experience the
-                  difference that personalized sleep therapy, expert guidance,
-                  and ongoing support can make in your rest and recovery.
+                  {t("sleep.features.desc4")}
                 </p>
               </div>
             </div>
 
             {/* Right Side - Cards */}
             <div
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
+              className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6"
               data-aos="fade-left"
               data-aos-once="false"
             >
@@ -566,8 +536,7 @@ const SleepTherapy = () => {
                   <p
                     className={`text-sm ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
                   >
-                    Access to {feature.toLowerCase()} for enhanced sleep therapy
-                    experience and comprehensive support.
+                    {t("sleep.features.cardDesc", { feature })}
                   </p>
                 </div>
               ))}
@@ -580,7 +549,7 @@ const SleepTherapy = () => {
       <section
         className={`w-full py-12 sm:py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDarkMode ? "bg-black" : "bg-white"}`}
       >
-        <div className="max-w-6xl mx-auto text-center w-full overflow-hidden">
+        <div className="w-full max-w-6xl mx-auto overflow-hidden text-center">
           <div
             className={`rounded-3xl p-8 sm:p-12 ${isDarkMode ? "bg-black" : "bg-white"}`}
             data-aos="fade-up"
@@ -591,7 +560,7 @@ const SleepTherapy = () => {
               data-aos-delay="50"
               data-aos-once="false"
             >
-              Start Your Sleep Therapy Journey Today
+              {t("sleep.cta.title")}
             </h2>
             <p
               className={`text-lg sm:text-xl mb-12 max-w-2xl mx-auto ${isDarkMode ? "text-white" : "text-black"}`}
@@ -599,19 +568,23 @@ const SleepTherapy = () => {
               data-aos-delay="100"
               data-aos-once="false"
             >
-              Get access to personalized sleep therapy and relaxation tools to
-              improve your sleep quality and overall well-being.
+              {t("sleep.cta.desc")}
             </p>
 
             {/* Pricing Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="grid grid-cols-1 gap-8 mb-12 md:grid-cols-3">
               {/* Basic Plan */}
               <div className="bg-gray-50 rounded-2xl p-6 border-2 border-gray-200 hover:border-[#26A0A2] transition-all duration-300">
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">Basic</h3>
+                <h3 className="mb-2 text-2xl font-bold text-gray-800">
+                  {t("sleep.pricing.basic")}
+                </h3>
                 <div className="text-4xl font-bold text-[#26A0A2] mb-4">
-                  $29<span className="text-lg text-gray-600">/month</span>
+                  {t("sleep.pricing.basicPrice")}
+                  <span className="text-lg text-gray-600">
+                    /{t("sleep.pricing.month")}
+                  </span>
                 </div>
-                <ul className="text-left space-y-3 mb-6">
+                <ul className="mb-6 space-y-3 text-left">
                   <li
                     className="flex items-center"
                     data-aos="fade-right"
@@ -629,7 +602,7 @@ const SleepTherapy = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Basic sleep assessment
+                    {t("sleep.pricing.basicFeature1")}
                   </li>
                   <li
                     className="flex items-center"
@@ -648,7 +621,7 @@ const SleepTherapy = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Relaxation audio library
+                    {t("sleep.pricing.basicFeature2")}
                   </li>
                   <li
                     className="flex items-center"
@@ -667,7 +640,7 @@ const SleepTherapy = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Mobile app access
+                    {t("sleep.pricing.basicFeature3")}
                   </li>
                   <li
                     className="flex items-center"
@@ -686,16 +659,16 @@ const SleepTherapy = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Weekly sleep reports
+                    {t("sleep.pricing.basicFeature4")}
                   </li>
                 </ul>
                 <button
-                  className="w-full bg-gray-200 text-gray-800 font-semibold py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors duration-300 transform hover:scale-105"
+                  className="w-full px-6 py-3 font-semibold text-gray-800 transition-colors duration-300 transform bg-gray-200 rounded-lg hover:bg-gray-300 hover:scale-105"
                   data-aos="fade-up"
                   data-aos-delay="450"
                   data-aos-once="false"
                 >
-                  Choose Basic
+                  {t("sleep.pricing.basicBtn")}
                 </button>
               </div>
 
@@ -707,25 +680,28 @@ const SleepTherapy = () => {
                   data-aos-delay="250"
                   data-aos-once="false"
                 >
-                  MOST POPULAR
+                  {t("sleep.pricing.mostPopular")}
                 </div>
                 <h3
-                  className="text-2xl font-bold text-white mb-2"
+                  className="mb-2 text-2xl font-bold text-white"
                   data-aos="fade-down"
                   data-aos-delay="250"
                   data-aos-once="false"
                 >
-                  Premium
+                  {t("sleep.pricing.premium")}
                 </h3>
                 <div
-                  className="text-4xl font-bold text-white mb-4"
+                  className="mb-4 text-4xl font-bold text-white"
                   data-aos="zoom-in"
                   data-aos-delay="300"
                   data-aos-once="false"
                 >
-                  $59<span className="text-lg text-gray-100">/month</span>
+                  {t("sleep.pricing.premiumPrice")}
+                  <span className="text-lg text-gray-100">
+                    /{t("sleep.pricing.month")}
+                  </span>
                 </div>
-                <ul className="text-left space-y-3 mb-6 text-white">
+                <ul className="mb-6 space-y-3 text-left text-white">
                   <li
                     className="flex items-center"
                     data-aos="fade-right"
@@ -733,7 +709,7 @@ const SleepTherapy = () => {
                     data-aos-once="false"
                   >
                     <svg
-                      className="w-5 h-5 text-white mr-3"
+                      className="w-5 h-5 mr-3 text-white"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -743,7 +719,7 @@ const SleepTherapy = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Everything in Basic
+                    {t("sleep.pricing.premiumFeature1")}
                   </li>
                   <li
                     className="flex items-center"
@@ -752,7 +728,7 @@ const SleepTherapy = () => {
                     data-aos-once="false"
                   >
                     <svg
-                      className="w-5 h-5 text-white mr-3"
+                      className="w-5 h-5 mr-3 text-white"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -762,7 +738,7 @@ const SleepTherapy = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Live sleep therapy sessions
+                    {t("sleep.pricing.premiumFeature2")}
                   </li>
                   <li
                     className="flex items-center"
@@ -771,7 +747,7 @@ const SleepTherapy = () => {
                     data-aos-once="false"
                   >
                     <svg
-                      className="w-5 h-5 text-white mr-3"
+                      className="w-5 h-5 mr-3 text-white"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -781,7 +757,7 @@ const SleepTherapy = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Personalized sleep plans
+                    {t("sleep.pricing.premiumFeature3")}
                   </li>
                   <li
                     className="flex items-center"
@@ -790,7 +766,7 @@ const SleepTherapy = () => {
                     data-aos-once="false"
                   >
                     <svg
-                      className="w-5 h-5 text-white mr-3"
+                      className="w-5 h-5 mr-3 text-white"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -800,7 +776,7 @@ const SleepTherapy = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Expert consultation
+                    {t("sleep.pricing.premiumFeature4")}
                   </li>
                   <li
                     className="flex items-center"
@@ -809,7 +785,7 @@ const SleepTherapy = () => {
                     data-aos-once="false"
                   >
                     <svg
-                      className="w-5 h-5 text-white mr-3"
+                      className="w-5 h-5 mr-3 text-white"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -819,7 +795,7 @@ const SleepTherapy = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Priority support
+                    {t("sleep.pricing.premiumFeature5")}
                   </li>
                 </ul>
                 <button
@@ -828,19 +804,19 @@ const SleepTherapy = () => {
                   data-aos-delay="600"
                   data-aos-once="false"
                 >
-                  Choose Premium
+                  {t("sleep.pricing.premiumBtn")}
                 </button>
               </div>
 
               {/* Pro Plan */}
               <div className="bg-gray-50 rounded-2xl p-6 border-2 border-gray-200 hover:border-[#26A0A2] transition-all duration-300">
                 <h3
-                  className="text-2xl font-bold text-gray-800 mb-2"
+                  className="mb-2 text-2xl font-bold text-gray-800"
                   data-aos="fade-down"
                   data-aos-delay="350"
                   data-aos-once="false"
                 >
-                  Pro
+                  {t("sleep.pricing.pro")}
                 </h3>
                 <div
                   className="text-4xl font-bold text-[#26A0A2] mb-4"
@@ -848,9 +824,12 @@ const SleepTherapy = () => {
                   data-aos-delay="400"
                   data-aos-once="false"
                 >
-                  $99<span className="text-lg text-gray-600">/month</span>
+                  {t("sleep.pricing.proPrice")}
+                  <span className="text-lg text-gray-600">
+                    /{t("sleep.pricing.month")}
+                  </span>
                 </div>
-                <ul className="text-left space-y-3 mb-6">
+                <ul className="mb-6 space-y-3 text-left">
                   <li
                     className="flex items-center"
                     data-aos="fade-right"
@@ -868,7 +847,7 @@ const SleepTherapy = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Everything in Premium
+                    {t("sleep.pricing.proFeature1")}
                   </li>
                   <li
                     className="flex items-center"
@@ -887,7 +866,7 @@ const SleepTherapy = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    1-on-1 sleep therapy sessions
+                    {t("sleep.pricing.proFeature2")}
                   </li>
                   <li
                     className="flex items-center"
@@ -906,7 +885,7 @@ const SleepTherapy = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Custom sleep environment plans
+                    {t("sleep.pricing.proFeature3")}
                   </li>
                   <li
                     className="flex items-center"
@@ -925,7 +904,7 @@ const SleepTherapy = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Weekend sleep retreats access
+                    {t("sleep.pricing.proFeature4")}
                   </li>
                   <li
                     className="flex items-center"
@@ -944,16 +923,16 @@ const SleepTherapy = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    VIP community access
+                    {t("sleep.pricing.proFeature5")}
                   </li>
                 </ul>
                 <button
-                  className="w-full bg-gray-200 text-gray-800 font-semibold py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors duration-300 transform hover:scale-105"
+                  className="w-full px-6 py-3 font-semibold text-gray-800 transition-colors duration-300 transform bg-gray-200 rounded-lg hover:bg-gray-300 hover:scale-105"
                   data-aos="fade-up"
                   data-aos-delay="700"
                   data-aos-once="false"
                 >
-                  Choose Pro
+                  {t("sleep.pricing.proBtn")}
                 </button>
               </div>
             </div>
